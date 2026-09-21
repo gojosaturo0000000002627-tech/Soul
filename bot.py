@@ -9,6 +9,7 @@ Telegram bot for Rajasthan exam preparation:
 Setup: README.md dekhein. Token config.py me ya BOT_TOKEN env variable me daalein.
 """
 
+import asyncio
 import json
 import logging
 import os
@@ -667,6 +668,13 @@ def main():
 
     if os.environ.get("PORT"):  # Render/Cloud Run jaise hosts
         _start_keepalive_server()
+
+    # Python 3.14+ me get_event_loop() apne aap loop nahi banata
+    # (telegram library ispe depend karti hai) — isliye hum khud bana dete hain
+    try:
+        asyncio.get_event_loop()
+    except RuntimeError:
+        asyncio.set_event_loop(asyncio.new_event_loop())
 
     app = Application.builder().token(token).post_init(post_init).build()
     register_handlers(app)
