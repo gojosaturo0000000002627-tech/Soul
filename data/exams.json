@@ -1,287 +1,700 @@
 {
-  "exams": [
+ "exams": [
+  {
+   "name": "RAS / RTS (RPSC)",
+   "aliases": [
+    "ras",
+    "rts",
+    "ras pre",
+    "ras mains",
+    "rpsc ras",
+    "rajasthan administrative service",
+    "rajasthan civil seva",
+    "sachiv"
+   ],
+   "website": "https://rpsc.rajasthan.gov.in",
+   "syllabus": [
     {
-      "name": "RAS / RTS (RPSC)",
-      "aliases": [
-        "ras",
-        "rts",
-        "ras pre",
-        "ras mains",
-        "rpsc ras",
-        "rajasthan administrative service",
-        "rajasthan civil seva",
-        "sachiv"
-      ],
-      "website": "https://rpsc.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RPSC Official Syllabus Page (sabhi RPSC exams)",
-          "url": "https://rpsc.rajasthan.gov.in/syllabus"
-        },
-        {
-          "title": "RAS Pre 2026 Syllabus PDF (official PDF ka mirror)",
-          "url": "https://rajras.in/wp-content/uploads/2026/01/RAS-Pre-2026-Syallabus-English.pdf"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RPSC Previous Question Papers (official page)",
-          "url": "https://rpsc.rajasthan.gov.in/quespapers"
-        }
-      ]
+     "title": "RPSC Official Syllabus Page (sabhi RPSC exams)",
+     "url": "https://rpsc.rajasthan.gov.in/syllabus"
     },
     {
-      "name": "REET (BSER)",
-      "aliases": [
-        "reet",
-        "rtet",
-        "reet level 1",
-        "reet level 2",
-        "teacher exam",
-        "bal vedik",
-        "shikshak"
-      ],
-      "website": "https://rajeduboard.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "BSER Official REET Page (syllabus + notification)",
-          "url": "https://rajeduboard.rajasthan.gov.in/RTET-REET/RTET-REET.htm"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "BSER REET Page (answer keys & old records)",
-          "url": "https://rajeduboard.rajasthan.gov.in/RTET-REET/RTET-REET.htm"
-        }
-      ]
-    },
-    {
-      "name": "Patwari (RSSB)",
-      "aliases": [
-        "patwari",
-        "patwar",
-        "patvari",
-        "patwari bharti",
-        "lekhpal"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — Patwar (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
-    },
-    {
-      "name": "VDO (RSSB)",
-      "aliases": [
-        "vdo",
-        "village development officer",
-        "gram vikas adhikari",
-        "gram sevak"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — Gram Sevak / VDO (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
-    },
-    {
-      "name": "Rajasthan CET (12th / Graduate)",
-      "aliases": [
-        "cet",
-        "common eligibility test",
-        "cet graduate",
-        "cet 12th",
-        "samanya agrita pariksha"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — CET (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
-    },
-    {
-      "name": "LDC / Junior Assistant",
-      "aliases": [
-        "ldc",
-        "junior assistant",
-        "clerk",
-        "kanishth sahayak",
-        "ldc bharti"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — LDC Grade II (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
-    },
-    {
-      "name": "Police Constable",
-      "aliases": [
-        "police",
-        "constable",
-        "police constable",
-        "rakshak",
-        "arodhak"
-      ],
-      "website": "https://police.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "Rajasthan Police — Recruitment / Bharti Section",
-          "url": "https://police.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "Rajasthan Police — Recruitment / Bharti Section",
-          "url": "https://police.rajasthan.gov.in"
-        }
-      ]
-    },
-    {
-      "name": "Police SI (RPSC)",
-      "aliases": [
-        "si",
-        "police si",
-        "sub inspector",
-        "up nirikshak",
-        "rpsc si"
-      ],
-      "website": "https://rpsc.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RPSC Official Syllabus Page — Sub Inspector",
-          "url": "https://rpsc.rajasthan.gov.in/syllabus"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RPSC Previous Question Papers — SI (official)",
-          "url": "https://rpsc.rajasthan.gov.in/quespapers"
-        }
-      ]
-    },
-    {
-      "name": "Jail Prahari (RSSB)",
-      "aliases": [
-        "jail prahari",
-        "prahari",
-        "jail warder",
-        "karakshasahi"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — Prahari (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
-    },
-    {
-      "name": "Forest Guard (RSSB)",
-      "aliases": [
-        "forest guard",
-        "vanrakshak",
-        "forester",
-        "van sanrakshak",
-        "van vibhag"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — Forester & Forest Guard (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
-    },
-    {
-      "name": "School Lecturer / 1st Grade (RPSC)",
-      "aliases": [
-        "school lecturer",
-        "1st grade",
-        "first grade",
-        "prathmik shikshak",
-        "lecturer",
-        "varishtha adhyapak"
-      ],
-      "website": "https://rpsc.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RPSC Official Syllabus Page — School Lecturer",
-          "url": "https://rpsc.rajasthan.gov.in/syllabus"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RPSC Previous Question Papers — School Lecturer (official)",
-          "url": "https://rpsc.rajasthan.gov.in/quespapers"
-        }
-      ]
-    },
-    {
-      "name": "Junior Engineer / JEN (RSSB)",
-      "aliases": [
-        "jen",
-        "junior engineer",
-        "kanishth abhiyanta",
-        "jen bharti"
-      ],
-      "website": "https://rssb.rajasthan.gov.in",
-      "syllabus": [
-        {
-          "title": "RSSB Site — Candidate Corner > Syllabus me milega",
-          "url": "https://rssb.rajasthan.gov.in"
-        }
-      ],
-      "old_papers": [
-        {
-          "title": "RSSB Old Question Papers — JEN (official)",
-          "url": "https://rssb.rajasthan.gov.in/oldpapers"
-        }
-      ]
+     "title": "RAS Pre 2026 Syllabus PDF (official PDF ka mirror)",
+     "url": "https://rajras.in/wp-content/uploads/2026/01/RAS-Pre-2026-Syallabus-English.pdf"
     }
-  ]
+   ],
+   "old_papers": [
+    {
+     "title": "RAS Pre 2024 — G.K & G.S",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/07D74FF6-9031-43AE-B6E4-0E7331CB68EC.pdf"
+    },
+    {
+     "title": "RAS Pre 2023 — G.K & G.S",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/8554F13A-94F1-424A-9504-2419778F8FE4.pdf"
+    },
+    {
+     "title": "RAS Pre 2021 — G.K & G.S",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/71EA929E-8711-4496-9DC3-B6E8FC358A08.pdf"
+    },
+    {
+     "title": "RAS Pre 2018 — G.K & G.S",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/51F55D64-D9A6-42FF-BA45-6E1149126927.pdf"
+    },
+    {
+     "title": "RAS Pre 2018 (TSP) — G.K & G.S",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/B81186DB-3B11-4395-8030-0C62471E536C.pdf"
+    },
+    {
+     "title": "RAS Mains 2024 — Paper IV",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/723D19A6-27A5-4CFF-A0FE-F97BEF861659.pdf"
+    },
+    {
+     "title": "RAS Mains 2024 — Paper III",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/E5389E6B-2FC5-4C86-96EC-EF058883340A.pdf"
+    },
+    {
+     "title": "RAS Mains 2024 — Paper II",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/C2E3C9B8-AD09-4348-8D8B-2991355BAE1C.pdf"
+    },
+    {
+     "title": "RAS Mains 2024 — Paper I",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/B650AB8A-0F9A-4C6D-94BC-B9EBFBB1F2BD.pdf"
+    }
+   ]
+  },
+  {
+   "name": "REET (BSER)",
+   "aliases": [
+    "reet",
+    "rtet",
+    "reet level 1",
+    "reet level 2",
+    "teacher exam",
+    "bal vedik",
+    "shikshak"
+   ],
+   "website": "https://rajeduboard.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "REET Level-2 — Maths & Science Syllabus PDF",
+     "url": "https://rajeduboard.rajasthan.gov.in/RTET-REET/L2MathematicsandScience.pdf"
+    },
+    {
+     "title": "REET Level-2 — Social Studies Syllabus PDF",
+     "url": "https://rajeduboard.rajasthan.gov.in/RTET-REET/L2SocialStudies.pdf"
+    },
+    {
+     "title": "BSER Official REET Page (Level-1 + updates)",
+     "url": "https://rajeduboard.rajasthan.gov.in/RTET-REET/RTET-REET.htm"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "BSER REET Page (answer keys & old records)",
+     "url": "https://rajeduboard.rajasthan.gov.in/RTET-REET/RTET-REET.htm"
+    }
+   ]
+  },
+  {
+   "name": "Patwari (RSSB)",
+   "aliases": [
+    "patwari",
+    "patwar",
+    "patvari",
+    "patwari bharti",
+    "lekhpal"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — Patwar (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "VDO (RSSB)",
+   "aliases": [
+    "vdo",
+    "village development officer",
+    "gram vikas adhikari",
+    "gram sevak"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — Gram Sevak / VDO (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Rajasthan CET (12th / Graduate)",
+   "aliases": [
+    "cet",
+    "common eligibility test",
+    "cet graduate",
+    "cet 12th",
+    "samanya agrita pariksha"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — CET (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "LDC / Junior Assistant",
+   "aliases": [
+    "ldc",
+    "junior assistant",
+    "clerk",
+    "kanishth sahayak",
+    "ldc bharti"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — LDC Grade II (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Police Constable",
+   "aliases": [
+    "police",
+    "constable",
+    "police constable",
+    "rakshak",
+    "arodhak"
+   ],
+   "website": "https://police.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "Rajasthan Police — Recruitment / Bharti Section",
+     "url": "https://police.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "Rajasthan Police — Recruitment / Bharti Section",
+     "url": "https://police.rajasthan.gov.in"
+    }
+   ]
+  },
+  {
+   "name": "Police SI (RPSC)",
+   "aliases": [
+    "si",
+    "police si",
+    "sub inspector",
+    "up nirikshak",
+    "rpsc si"
+   ],
+   "website": "https://rpsc.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RPSC Official Syllabus Page — Sub Inspector",
+     "url": "https://rpsc.rajasthan.gov.in/syllabus"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "SI 2025 — G.K & G.S (06-04-2026)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/85EEA03F-9B39-4205-A1E5-63BE2787994A.pdf"
+    },
+    {
+     "title": "SI 2025 — Hindi (06-04-2026)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/AE66F087-691D-4EE0-A880-3B4517333608.pdf"
+    },
+    {
+     "title": "SI 2025 — G.K & G.S (05-04-2026)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/D3575B07-41CE-437E-84DF-EF70FC85856F.pdf"
+    },
+    {
+     "title": "SI 2025 — Hindi (05-04-2026)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/49832447-4475-4DF4-9871-4535D4968B07.pdf"
+    },
+    {
+     "title": "SI Re-Exam 2021 — G.K & G.S",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/97FC052C-DA2A-46E5-AC08-810D64AEAC00.pdf"
+    },
+    {
+     "title": "SI Re-Exam 2021 — Hindi",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/101589DC-F86C-4855-80FC-9C5DAC4A487E.pdf"
+    },
+    {
+     "title": "SI 2021 — G.K & G.S (13-09-2021)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/E041A852-8D25-4EEE-8705-39BA1C33763A.pdf"
+    },
+    {
+     "title": "SI 2021 — Hindi (15-09-2021)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/2FB49447-3C90-48AC-8A03-B8C7E3253D0A.pdf"
+    },
+    {
+     "title": "SI 2016 Exam — Paper II",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/32866B9A-8DCF-4CC4-A85F-1C5FFDA6C816.pdf"
+    },
+    {
+     "title": "SI 2016 Exam — Paper I",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/27B26E9A-60C8-4DF7-9ADF-B2952A2F1B5E.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Jail Prahari (RSSB)",
+   "aliases": [
+    "jail prahari",
+    "prahari",
+    "jail warder",
+    "karakshasahi"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — Prahari (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Forest Guard (RSSB)",
+   "aliases": [
+    "forest guard",
+    "vanrakshak",
+    "forester",
+    "van sanrakshak",
+    "van vibhag"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — Forester & Forest Guard (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "School Lecturer / 1st Grade (RPSC)",
+   "aliases": [
+    "school lecturer",
+    "1st grade",
+    "first grade",
+    "prathmik shikshak",
+    "lecturer",
+    "varishtha adhyapak"
+   ],
+   "website": "https://rpsc.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RPSC Official Syllabus Page — School Lecturer",
+     "url": "https://rpsc.rajasthan.gov.in/syllabus"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "School Lecturer 2025 — G.K (Group D)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/1DD70B37-5CB4-4BE3-9C63-CBD076955B63.pdf"
+    },
+    {
+     "title": "School Lecturer 2025 — General Studies",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/C64A4C3C-0AD0-4CDD-8496-FFF1C2D2E040.pdf"
+    },
+    {
+     "title": "School Lecturer 2022 — G.A & General Studies",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/5BA530FD-66CD-4FE0-8E4D-234BDC57032C.pdf"
+    },
+    {
+     "title": "School Lecturer 2018 — G.K (Group B)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/7E5D1BB6-D0F7-43B2-9AE1-DD4C84F0FE29.pdf"
+    },
+    {
+     "title": "School Lecturer 2015 — G.K",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/C0569F4E-8082-4E7E-81EF-70D81F3320AA.pdf"
+    },
+    {
+     "title": "School Lecturer 2013 — Paper I (G.A & G.S)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/812EC4E0-3F92-433F-9829-A0C2AAA05F43.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Junior Engineer / JEN (RSSB)",
+   "aliases": [
+    "jen",
+    "junior engineer",
+    "kanishth abhiyanta",
+    "jen bharti"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus me milega",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers — JEN (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "2nd Grade Teacher (RPSC)",
+   "aliases": [
+    "2nd grade",
+    "second grade",
+    "sr teacher",
+    "senior teacher",
+    "varishtha adhyapak",
+    "dusri grade",
+    "reet mains"
+   ],
+   "website": "https://rpsc.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RPSC Official Syllabus Page — Sr. Teacher Gr II",
+     "url": "https://rpsc.rajasthan.gov.in/syllabus"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "2nd Grade 2025 — G.K (Group B)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/0653AE2C-75E6-48CC-A9A4-BF3687904503.pdf"
+    },
+    {
+     "title": "2nd Grade 2025 — G.K (Group D)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/2D97630B-B2DB-4652-BFA0-751CB3BA44D5.pdf"
+    },
+    {
+     "title": "2nd Grade 2024 — G.K (Group C)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/4EB458AD-60EE-4242-AAB9-9A67DF655FCE.pdf"
+    },
+    {
+     "title": "2nd Grade 2022 — G.K",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/4F6C5C46-F575-4489-B456-C4ECBE72B753.pdf"
+    },
+    {
+     "title": "2nd Grade 2018 — G.K (28-10-2018)",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/339CB14A-A947-42A7-B6A9-EE8F8AF7F244.pdf"
+    },
+    {
+     "title": "2nd Grade 2016 — G.K & Ed. Psychology",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/2621F38B-98AA-4E85-BB2B-41059A4878AF.pdf"
+    },
+    {
+     "title": "2nd Grade 2013 — G.K",
+     "url": "https://rpsc.rajasthan.gov.in/Static/PreviousQuestionPaper/22EBC732-5E4B-473E-811F-F7D97314BDC7.pdf"
+    }
+   ]
+  },
+  {
+   "name": "ACF / Forest Range Officer (RPSC)",
+   "aliases": [
+    "acf",
+    "forest range officer",
+    "van kshetriya adhikari",
+    "वन क्षेत्रीय अधिकारी",
+    "range officer"
+   ],
+   "website": "https://rpsc.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RPSC Official Syllabus Page",
+     "url": "https://rpsc.rajasthan.gov.in/syllabus"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RPSC Previous Question Papers (official)",
+     "url": "https://rpsc.rajasthan.gov.in/quespapers"
+    }
+   ]
+  },
+  {
+   "name": "Headmaster (RPSC)",
+   "aliases": [
+    "headmaster",
+    "principal",
+    "pracharya",
+    "प्राचार्य"
+   ],
+   "website": "https://rpsc.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RPSC Official Syllabus Page",
+     "url": "https://rpsc.rajasthan.gov.in/syllabus"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RPSC Previous Question Papers (official)",
+     "url": "https://rpsc.rajasthan.gov.in/quespapers"
+    }
+   ]
+  },
+  {
+   "name": "Conductor (RSSB)",
+   "aliases": [
+    "conductor",
+    "parichalak",
+    "परिचालक",
+    "bus conductor"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Informatics Assistant (RSSB)",
+   "aliases": [
+    "informatics assistant",
+    "suchna sahayak",
+    "सूचना सहायक",
+    "ia",
+    "information assistant"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Agriculture Supervisor (RSSB)",
+   "aliases": [
+    "agriculture supervisor",
+    "krishi paryavekshak",
+    "कृषि पर्यवेक्षक",
+    "agri supervisor"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Computor (RSSB)",
+   "aliases": [
+    "computor",
+    "computer",
+    "कम्प्यूटर",
+    "kanishth karyalaya"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Animal Attendant (RSSB)",
+   "aliases": [
+    "animal attendant",
+    "pashu paricharak",
+    "पशु परिचारक",
+    "pashu"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Lab Assistant (RSSB)",
+   "aliases": [
+    "lab assistant",
+    "prayogshala sahayak",
+    "प्रयोगशाला सहायक",
+    "laboratory assistant"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Stenographer (RSSB)",
+   "aliases": [
+    "stenographer",
+    "ashulipik",
+    "आशुलिपिक",
+    "steno"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Motor Vehicle SI (RSSB)",
+   "aliases": [
+    "motor vehicle si",
+    "mvsi",
+    "मोटर वाहन उपनिरीक्षक",
+    "rto inspector"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "Women Supervisor (RSSB)",
+   "aliases": [
+    "women supervisor",
+    "mahila paryavekshak",
+    "महिला पर्यवेक्षक",
+    "supervisor woman",
+    "anganwadi"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  },
+  {
+   "name": "PTI Grade III (RSSB)",
+   "aliases": [
+    "pti",
+    "pti grade 3",
+    "sharirik shiksha",
+    "शारीरिक शिक्षा",
+    "physical training instructor"
+   ],
+   "website": "https://rssb.rajasthan.gov.in",
+   "syllabus": [
+    {
+     "title": "RSSB Site — Candidate Corner > Syllabus में मिलेगा",
+     "url": "https://rssb.rajasthan.gov.in"
+    }
+   ],
+   "old_papers": [
+    {
+     "title": "RSSB Old Question Papers (official)",
+     "url": "https://rssb.rajasthan.gov.in/oldpapers"
+    }
+   ]
+  }
+ ]
 }

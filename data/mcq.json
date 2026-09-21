@@ -1,10 +1,89 @@
 {
   "topics": {
     "history": {
-      "label": "📜 Rajasthan History",
+      "label": "📜 राजस्थान का इतिहास",
+      "sublabels": {
+        "forts": "🏰 दुर्ग एवं स्थापत्य",
+        "events": "⚔️ युद्ध एवं घटनाएँ",
+        "people": "👤 व्यक्तित्व एवं साहित्य",
+        "modern": "🇮🇳 आधुनिक राजस्थान"
+      },
       "questions": [
         {
-          "q": "Haldighati ka yudh kab hua tha?",
+          "sub": "forts",
+          "q": "जैसलमेर दुर्ग का निर्माण किसने करवाया था?",
+          "options": [
+            "रावल जैसाल",
+            "राव जोधा",
+            "राणा सांगा",
+            "मानसिंह"
+          ],
+          "answer": 0,
+          "explain": "1155 ई. में भाटी वंश के रावल जैसाल ने — इसी के नाम पर शहर का नाम जैसलमेर पड़ा।"
+        },
+        {
+          "sub": "forts",
+          "q": "कुम्भलगढ़ दुर्ग किसने बनवाया था?",
+          "options": [
+            "राणा सांगा",
+            "महाराणा प्रताप",
+            "राणा कुम्भा",
+            "उदयसिंह"
+          ],
+          "answer": 2,
+          "explain": "राणा कुम्भा ने 15वीं शताब्दी में बनवाया — अरावली की पहाड़ियों पर स्थित, दुनिया की सबसे लंबी दीवारों में से एक।"
+        },
+        {
+          "sub": "forts",
+          "q": "चित्तौड़गढ़ दुर्ग का निर्माण (मान्यता के अनुसार) किसने करवाया था?",
+          "options": [
+            "मोरी वंश के चित्रांग",
+            "पृथ्वीराज चौहान",
+            "राणा कुम्भा",
+            "राव जोधा"
+          ],
+          "answer": 0,
+          "explain": "चित्रांग मोरी के नाम पर ही चित्तौड़ (चित्रकूट) नाम पड़ा।"
+        },
+        {
+          "sub": "forts",
+          "q": "आमेर के दुर्ग का निर्माण किसने करवाया था?",
+          "options": [
+            "सवाई जयसिंह द्वितीय",
+            "राजा मानसिंह प्रथम",
+            "मिर्जा राजा जयसिंह",
+            "सवाई प्रताप सिंह"
+          ],
+          "answer": 1,
+          "explain": "16वीं शताब्दी में राजा मानसिंह प्रथम ने आमेर दुर्ग का निर्माण करवाया।"
+        },
+        {
+          "sub": "forts",
+          "q": "चित्तौड़गढ़ का 'विजय स्तम्भ' किसने बनवाया था?",
+          "options": [
+            "राणा सांगा",
+            "राणा कुम्भा",
+            "महाराणा प्रताप",
+            "रतनसिंह"
+          ],
+          "answer": 1,
+          "explain": "राणा कुम्भा ने महमूद खिलजी पर विजय की स्मृति में बनवाया था।"
+        },
+        {
+          "sub": "forts",
+          "q": "जयपुर का हवा महल किसने बनवाया था?",
+          "options": [
+            "सवाई जयसिंह द्वितीय",
+            "सवाई प्रताप सिंह",
+            "मानसिंह प्रथम",
+            "जयसिंह तृतीय"
+          ],
+          "answer": 1,
+          "explain": "1799 में महाराजा सवाई प्रताप सिंह ने बनवाया — इसमें 956 झरोखे हैं।"
+        },
+        {
+          "sub": "events",
+          "q": "हल्दीघाटी का युद्ध कब हुआ था?",
           "options": [
             "1526",
             "1556",
@@ -12,207 +91,307 @@
             "1606"
           ],
           "answer": 2,
-          "explain": "18 June 1576 — Maharana Pratap vs Mughal sena (Man Singh ke netritv me)."
+          "explain": "18 जून 1576 — महाराणा प्रताप बनाम मुगल सेना (मानसिंह के नेतृत्व में)।"
         },
         {
-          "q": "Chittorgarh ka durg (maanyata ke anusaar) kisne banwaya tha?",
+          "sub": "events",
+          "q": "चित्तौड़ का प्रथम साका (1303) किसके आक्रमण के समय हुआ?",
           "options": [
-            "Mori vansh ke Chitrangada",
-            "Prithviraj Chauhan",
-            "Rana Kumbha",
-            "Rao Jodha"
-          ],
-          "answer": 0,
-          "explain": "Chitrangada Mori ke naam par hi Chittorgarh (Chitrakoot) naam pada."
-        },
-        {
-          "q": "Jaisalmer ka durg kisne banwaya tha?",
-          "options": [
-            "Rao Jodha",
-            "Rawal Jaisal",
-            "Rana Sanga",
-            "Man Singh"
-          ],
-          "answer": 1,
-          "explain": "1155 AD me Bhati vanshiya Rawal Jaisal ne — isi liye sheher ka naam Jaisalmer pada."
-        },
-        {
-          "q": "Kumbhalgarh ka durg kisne banwaya?",
-          "options": [
-            "Rana Sanga",
-            "Maharana Pratap",
-            "Rana Kumbha",
-            "Udai Singh"
+            "बाबर",
+            "अकबर",
+            "अलाउद्दीन खिलजी",
+            "बहादुरशाह"
           ],
           "answer": 2,
-          "explain": "Rana Kumbha ne 15vi sadi me banwaya — Aravali ki pahadiyon me sthit."
+          "explain": "1303 में अलाउद्दीन खिलजी के विरुद्ध रावल रतनसिंह के समय — रानी पद्मिनी सहित जौहर हुआ।"
         },
         {
-          "q": "Kavigyi Meera Bai ki shaadi kiske saath hui thi?",
+          "sub": "events",
+          "q": "महाराणा प्रताप का राज्याभिषेक कहाँ हुआ था?",
           "options": [
-            "Maharana Pratap",
-            "Mewar ke Yuvraj Bhojraj",
-            "Rana Sanga",
-            "Amar Singh"
+            "उदयपुर",
+            "चित्तौड़",
+            "गोगुन्दा",
+            "कुम्भलगढ़"
           ],
-          "answer": 1,
-          "explain": "Meera Bai ki shaadi Mewar ke Rana Sanga ke putra Bhojraj ke saath hui thi."
+          "answer": 2,
+          "explain": "1572 में गोगुन्दा (उदयपुर जिला) में महाराणा प्रताप का राज्याभिषेक हुआ था।"
         },
         {
-          "q": "Rajasthan Diwas kab manaya jata hai?",
+          "sub": "events",
+          "q": "जयपुर नगर की स्थापना किसने और कब की थी?",
           "options": [
-            "1 November",
-            "30 March",
-            "15 August",
-            "26 January"
-          ],
-          "answer": 1,
-          "explain": "30 March 1949 ko 'Greater Rajasthan' ka nirman hua tha."
-        },
-        {
-          "q": "'Prithviraj Raso' granth kisne likha?",
-          "options": [
-            "Chand Bardai",
-            "Banabhatta",
-            "Kalhana",
-            "Vishakhadatta"
+            "सवाई जयसिंह द्वितीय, 1727",
+            "मानसिंह, 1617",
+            "जयसिंह प्रथम, 1688",
+            "सवाई प्रताप सिंह, 1799"
           ],
           "answer": 0,
-          "explain": "Chand Bardai Prithviraj Chauhan ke darbari kavi the."
+          "explain": "सवाई जयसिंह द्वितीय ने 18 नवंबर 1727 को जयपुर नगर की स्थापना की।"
         },
         {
-          "q": "Amer ke durg ka nirman kisne karaya?",
+          "sub": "people",
+          "q": "कृष्णभक्त कवयित्री मीराबाई का विवाह किसके साथ हुआ था?",
           "options": [
-            "Sawai Jai Singh II",
-            "Raja Man Singh I",
-            "Mirza Raja Jai Singh",
-            "Sawai Pratap Singh"
+            "महाराणा प्रताप",
+            "मेवाड़ के युवराज भोजराज",
+            "राणा सांगा",
+            "अमरसिंह"
           ],
           "answer": 1,
-          "explain": "Raja Man Singh I ne 16vi sadi me Amer durg ka nirman karaya."
+          "explain": "मीराबाई का विवाह मेवाड़ के राणा सांगा के पुत्र युवराज भोजराज के साथ हुआ था।"
         },
         {
-          "q": "'Rajasthan ka Gandhi' kis shaksiyat ko kaha jata hai?",
+          "sub": "people",
+          "q": "'पृथ्वीराज रासो' ग्रंथ की रचना किसने की थी?",
           "options": [
-            "Jai Narayan Vyas",
-            "Gokulbhai Bhatt",
-            "Heera Lal Shastri",
-            "Arjun Lal Sethi"
+            "चंदबरदाई",
+            "बाणभट्ट",
+            "कल्हण",
+            "विशाखदत्त"
+          ],
+          "answer": 0,
+          "explain": "चंदबरदाई पृथ्वीराज चौहान के दरबारी कवि थे।"
+        },
+        {
+          "sub": "people",
+          "q": "'राजस्थान के इतिहास व पुरातत्व' (Annals and Antiquities) पुस्तक किसने लिखी?",
+          "options": [
+            "कर्नल जेम्स टॉड",
+            "वी. ए. स्मिथ",
+            "अबुल फजल",
+            "टैवर्नियर"
+          ],
+          "answer": 0,
+          "explain": "कर्नल जेम्स टॉड — ईस्ट इंडिया कंपनी का अधिकारी, जिसने राजस्थान का विस्तृत वर्णन किया।"
+        },
+        {
+          "sub": "modern",
+          "q": "राजस्थान दिवस कब मनाया जाता है?",
+          "options": [
+            "1 नवंबर",
+            "30 मार्च",
+            "15 अगस्त",
+            "26 जनवरी"
           ],
           "answer": 1,
-          "explain": "Sirohi se sanbandhit Gokulbhai Bhatt — swatantrata sangram senani aur 'Rajasthan ka Gandhi'."
+          "explain": "30 मार्च 1949 को 'ग्रेटर राजस्थान' का निर्माण हुआ था।"
+        },
+        {
+          "sub": "modern",
+          "q": "बिजोलिया किसान आंदोलन का नेतृत्व किसने किया था?",
+          "options": [
+            "विजय सिंह पथिक",
+            "जयनारायण व्यास",
+            "अर्जुनलाल सेठी",
+            "माणिक्यलाल वर्मा"
+          ],
+          "answer": 0,
+          "explain": "1897 में शुरू हुए बिजोलिया किसान आंदोलन का नेतृत्व विजय सिंह पथिक ने किया।"
+        },
+        {
+          "sub": "modern",
+          "q": "'राजस्थान का गांधी' किस व्यक्तित्व को कहा जाता है?",
+          "options": [
+            "जयनारायण व्यास",
+            "गोकुलभाई भट्ट",
+            "हीरालाल शास्त्री",
+            "अर्जुनलाल सेठी"
+          ],
+          "answer": 1,
+          "explain": "सिरोही से जुड़े गोकुलभाई भट्ट — स्वतंत्रता सेनानी और 'राजस्थान का गांधी'।"
+        },
+        {
+          "sub": "modern",
+          "q": "मत्स्य संघ (1948) में कौन-से जिले शामिल थे?",
+          "options": [
+            "अलवर, भरतपुर, धौलपुर, करौली",
+            "कोटा, बूंदी, झालावाड़, सवाई माधोपुर",
+            "अजमेर, पाली, नागौर, सीकर",
+            "उदयपुर, डूंगरपुर, बांसवाड़ा, सिरोही"
+          ],
+          "answer": 0,
+          "explain": "18 मार्च 1948 को बने मत्स्य संघ में अलवर, भरतपुर, धौलपुर और करौली शामिल थे।"
         }
       ]
     },
     "geography": {
-      "label": "🗺️ Rajasthan Geography",
+      "label": "🗺️ राजस्थान का भूगोल",
+      "sublabels": {
+        "position": "📍 स्थिति एवं विस्तार",
+        "rivers": "🏞️ नदियाँ एवं नहरें",
+        "mountains": "⛰️ पर्वत एवं झीलें"
+      },
       "questions": [
         {
-          "q": "Kshetrafal ke drishti se Bharat ka sabse bada rajya kaun sa hai?",
+          "sub": "position",
+          "q": "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य कौन-सा है?",
           "options": [
-            "Madhya Pradesh",
-            "Maharashtra",
-            "Rajasthan",
-            "Uttar Pradesh"
+            "मध्य प्रदेश",
+            "महाराष्ट्र",
+            "राजस्थान",
+            "उत्तर प्रदेश"
           ],
           "answer": 2,
-          "explain": "Rajasthan (~3.42 lakh sq km) — Bharat ke kul kshetrafal ka lagbhag 10.4%."
+          "explain": "राजस्थान (~3.42 लाख वर्ग किमी) — भारत के कुल क्षेत्रफल का लगभग 10.4%।"
         },
         {
-          "q": "Rajasthan ka sabse uncha sthan kaun sa hai?",
+          "sub": "position",
+          "q": "मार्च 2023 के बाद राजस्थान में कुल कितने जिले हैं?",
           "options": [
-            "Sirohi ki tarai",
-            "Guru Shikhar (Mount Abu)",
-            "Sariska ki pahadiyan",
-            "Jarga pahad"
-          ],
-          "answer": 1,
-          "explain": "Guru Shikhar, Mount Abu — lagbhag 1722 meter, Aravali shreni me."
-        },
-        {
-          "q": "Rajasthan ki sabse lambi nadi kaun si hai?",
-          "options": [
-            "Banas",
-            "Luni",
-            "Chambal",
-            "Mahi"
+            "33",
+            "41",
+            "50",
+            "56"
           ],
           "answer": 2,
-          "explain": "Chambal — Yamuna ki sahayak nadi, Rajasthan me sabse lamba biodha."
+          "explain": "2023 में 19 नए जिले बनाए गए — अब कुल 50 जिले हैं।"
         },
         {
-          "q": "Rajasthan ka kshetrafal me sabse bada jila kaun sa hai?",
+          "sub": "position",
+          "q": "राजस्थान के थार के मरुस्थल को और क्या कहा जाता है?",
           "options": [
-            "Barmer",
-            "Jodhpur",
-            "Jaisalmer",
-            "Bikaner"
-          ],
-          "answer": 2,
-          "explain": "Jaisalmer — lagbhag 38,000 sq km ke saath sabse bada jila."
-        },
-        {
-          "q": "Sambhar jheel kis prakar ki jheel hai?",
-          "options": [
-            "Mitha pani ki sabse badi jheel",
-            "Namkeen (salt) pani ki badi jheel",
-            "Kratrik (artificial) jheel",
-            "Baanjh (glacier) jheel"
-          ],
-          "answer": 1,
-          "explain": "Sambhar — Bharat ki sabse badi andlandi namkeen pani ki jheel; namak utpadan bhi hota hai."
-        },
-        {
-          "q": "Luni nadi ka jal kahan jake milta hai?",
-          "options": [
-            "Arab samudra",
-            "Rann of Kachchh",
-            "Bay of Bengal",
-            "Sambhar jheel"
-          ],
-          "answer": 1,
-          "explain": "Luni — Ajmer ke Naga pahad se nikal kar Rann of Kachchh me samapt."
-        },
-        {
-          "q": "'Rajasthan ka Cherrapunji' kis jile ko kaha jata hai?",
-          "options": [
-            "Mount Abu",
-            "Udaipur",
-            "Jhalawar",
-            "Kota"
-          ],
-          "answer": 2,
-          "explain": "Jhalawar — Rajasthan me sabse zyada varsha wala kshetra."
-        },
-        {
-          "q": "Rajasthan ka Thar marusthal dusre naam se kya kaha jata hai?",
-          "options": [
-            "Marusthali",
-            "Charotar",
-            "Rohi",
-            "Beet"
+            "मरुस्थली",
+            "चारोतार",
+            "रोही",
+            "बीत"
           ],
           "answer": 0,
-          "explain": "Thar ko 'Marusthali' bhi kaha jata hai."
+          "explain": "थार मरुस्थल को 'मरुस्थली' भी कहा जाता है।"
         },
         {
-          "q": "Jaisamand jheel kis nadi par bani hai?",
+          "sub": "rivers",
+          "q": "राजस्थान की सबसे लंबी नदी कौन-सी है?",
           "options": [
-            "Banas",
-            "Gomti",
-            "Ahar",
-            "Som"
+            "बनास",
+            "लूणी",
+            "चम्बल",
+            "माही"
+          ],
+          "answer": 2,
+          "explain": "चम्बल — यमुना की सहायक नदी, राजस्थान में सबसे लंबा बहाव।"
+        },
+        {
+          "sub": "rivers",
+          "q": "लूणी नदी का जल कहाँ जाकर समाप्त होता है?",
+          "options": [
+            "अरब सागर",
+            "कच्छ का रण",
+            "बंगाल की खाड़ी",
+            "सांभर झील"
           ],
           "answer": 1,
-          "explain": "Udaipur ke paas Gomti nadi par — Bharat ki sabse badi artificial freshwater jheelon me se ek."
+          "explain": "अजमेर के नाग पहाड़ से निकलकर लूणी नदी कच्छ के रण में समाप्त होती है — इसका जल खारा होता है।"
+        },
+        {
+          "sub": "rivers",
+          "q": "बनास नदी का उद्गम कहाँ से होता है?",
+          "options": [
+            "खमनोर की पहाड़ियाँ (राजसमंद)",
+            "नाग पहाड़ (अजमेर)",
+            "अरावली (उदयपुर)",
+            "जयसमंद (उदयपुर)"
+          ],
+          "answer": 0,
+          "explain": "बनास नदी राजसमंद जिले की खमनोर पहाड़ियों (अरावली श्रेणी) से निकलती है।"
+        },
+        {
+          "sub": "rivers",
+          "q": "इंदिरा गांधी नहर किस बैराज से निकलती है?",
+          "options": [
+            "हरिके बैराज (पंजाब)",
+            "फिरोजपुर बैराज",
+            "हिमाचल बांध",
+            "भाखड़ा बांध"
+          ],
+          "answer": 0,
+          "explain": "इंदिरा गांधी नहर पंजाब के हरिके बैराज से निकलकर राजस्थान के मरु क्षेत्र को सींचती है।"
+        },
+        {
+          "sub": "mountains",
+          "q": "राजस्थान का सबसे ऊँचा स्थान कौन-सा है?",
+          "options": [
+            "सिरोही की तराई",
+            "गुरु शिखर (माउंट आबू)",
+            "सरिस्का की पहाड़ियाँ",
+            "जरगा पहाड़"
+          ],
+          "answer": 1,
+          "explain": "गुरु शिखर, माउंट आबू — लगभग 1722 मीटर, अरावली श्रेणी में।"
+        },
+        {
+          "sub": "mountains",
+          "q": "माउंट आबू किस जिले में स्थित है?",
+          "options": [
+            "पाली",
+            "सिरोही",
+            "उदयपुर",
+            "जालोर"
+          ],
+          "answer": 1,
+          "explain": "माउंट आबू सिरोही जिले में अरावली की घाटी में स्थित है।"
+        },
+        {
+          "sub": "mountains",
+          "q": "सांभर झील किस प्रकार की झील है?",
+          "options": [
+            "मीठे पानी की सबसे बड़ी झील",
+            "खारे (नमकीन) पानी की बड़ी झील",
+            "कृत्रिम झील",
+            "हिमनद (ग्लेशियर) झील"
+          ],
+          "answer": 1,
+          "explain": "सांभर — भारत की सबसे बड़ी अंतर्देशीय खारे पानी की झील; यहाँ नमक का उत्पादन भी होता है।"
+        },
+        {
+          "sub": "mountains",
+          "q": "जैसमंद झील किस नदी पर बनी है?",
+          "options": [
+            "बनास",
+            "गोमती",
+            "आहर",
+            "सोम"
+          ],
+          "answer": 1,
+          "explain": "उदयपुर के पास गोमती नदी पर — भारत की सबसे बड़ी कृत्रिम मीठे पानी की झीलों में से एक।"
+        },
+        {
+          "sub": "mountains",
+          "q": "'राजस्थान का चेरापूंजी' किस जिले को कहा जाता है?",
+          "options": [
+            "माउंट आबू",
+            "उदयपुर",
+            "झालावाड़",
+            "कोटा"
+          ],
+          "answer": 2,
+          "explain": "झालावाड़ — राजस्थान में सबसे अधिक वर्षा वाला क्षेत्र।"
+        },
+        {
+          "sub": "mountains",
+          "q": "अरावली पर्वतमाला के बारे में कौन-सा कथन सही है?",
+          "options": [
+            "यह नई वलित पर्वतमाला है",
+            "यह विश्व की प्राचीनतम वलित पर्वतमालाओं में से एक है",
+            "यह केवल राजस्थान में है",
+            "इसकी सबसे ऊँची चोटी अन्नामलाई है"
+          ],
+          "answer": 1,
+          "explain": "अरावली विश्व की प्राचीनतम वलित (fold) पर्वतमालाओं में से एक है।"
         }
       ]
     },
     "polity": {
-      "label": "🏛️ Rajasthan Polity & Current",
+      "label": "🏛️ राजस्थान की राजव्यवस्था",
+      "sublabels": {
+        "assembly": "⚖️ विधानसभा एवं संसद",
+        "panchayat": "🏘️ पंचायती राज",
+        "admin": "🏢 प्रशासन एवं न्यायपालिका"
+      },
       "questions": [
         {
-          "q": "Rajasthan Vidhan Sabha me kul kitne vidhayak (sadasye) hote hain?",
+          "sub": "assembly",
+          "q": "राजस्थान विधानसभा में कुल कितने विधायक होते हैं?",
           "options": [
             "160",
             "180",
@@ -220,54 +399,11 @@
             "230"
           ],
           "answer": 2,
-          "explain": "Rajasthan Vidhan Sabha ki kul shaktiyan 200 vidhayak hain."
+          "explain": "राजस्थान विधानसभा की कुल सदस्य संख्या 200 है।"
         },
         {
-          "q": "Rajasthan High Court kahan sthit hai?",
-          "options": [
-            "Jaipur",
-            "Jodhpur",
-            "Ajmer",
-            "Udaipur"
-          ],
-          "answer": 1,
-          "explain": "Mukhya High Court Jodhpur me — Jaipur me iski bench hai."
-        },
-        {
-          "q": "Rajasthan ka pehla mukhyamantri kaun tha?",
-          "options": [
-            "Jai Narayan Vyas",
-            "Heera Lal Shastri",
-            "Mohan Lal Sukhadia",
-            "Tika Ram Paliwal"
-          ],
-          "answer": 1,
-          "explain": "Heera Lal Shastri — Greater Rajasthan ke pehle mukhyamantri (1949)."
-        },
-        {
-          "q": "Bharat me Panchayati Raj ki shuruaat kis rajya se hui?",
-          "options": [
-            "Gujarat",
-            "Uttar Pradesh",
-            "Rajasthan",
-            "Andhra Pradesh"
-          ],
-          "answer": 2,
-          "explain": "2 October 1959 — Rajasthan ke Nagaur jile me, Pt. Nehru ke haathon se."
-        },
-        {
-          "q": "Rajya Sabha me Rajasthan ke kitne sadasye hain?",
-          "options": [
-            "10",
-            "12",
-            "14",
-            "18"
-          ],
-          "answer": 0,
-          "explain": "Rajya Sabha me Rajasthan ki 10 seats hain."
-        },
-        {
-          "q": "Lok Sabha me Rajasthan se kitne seats hain?",
+          "sub": "assembly",
+          "q": "लोकसभा में राजस्थान से कितनी सीटें हैं?",
           "options": [
             "23",
             "24",
@@ -275,48 +411,142 @@
             "27"
           ],
           "answer": 2,
-          "explain": "Rajasthan se Lok Sabha me 25 seats hain."
+          "explain": "राजस्थान से लोकसभा में 25 सीटें हैं।"
         },
         {
-          "q": "Matsya Sangh me kaun se jile shaamil the?",
+          "sub": "assembly",
+          "q": "राज्यसभा में राजस्थान के कितने सदस्य हैं?",
           "options": [
-            "Alwar, Bharatpur, Dholpur, Karauli",
-            "Kota, Bundi, Jhalawar, Sawai Madhopur",
-            "Ajmer, Pali, Nagaur, Sikar",
-            "Udaipur, Dungarpur, Banswara, Sirohi"
+            "10",
+            "12",
+            "14",
+            "18"
           ],
           "answer": 0,
-          "explain": "18 March 1948 ko bana Matsya Sangh — Alwar, Bharatpur, Dholpur aur Karauli."
+          "explain": "राज्यसभा में राजस्थान की 10 सीटें हैं।"
         },
         {
-          "q": "Rajasthan ka ekmatra pramukh pahadi sthaan (hill station) kaun sa hai?",
+          "sub": "assembly",
+          "q": "राजस्थान विधानसभा भवन कहाँ स्थित है?",
           "options": [
-            "Puskar",
-            "Abu Road",
-            "Mount Abu",
-            "Ranakpur"
+            "जयपुर",
+            "जोधपुर",
+            "अजमेर",
+            "उदयपुर"
+          ],
+          "answer": 0,
+          "explain": "राजस्थान विधानसभा भवन जयपुर में स्थित है।"
+        },
+        {
+          "sub": "panchayat",
+          "q": "भारत में पंचायती राज की शुरुआत किस राज्य से हुई?",
+          "options": [
+            "गुजरात",
+            "उत्तर प्रदेश",
+            "राजस्थान",
+            "आंध्र प्रदेश"
           ],
           "answer": 2,
-          "explain": "Mount Abu — Sirohi jile me, Aravali ki ghati me sthit."
+          "explain": "2 अक्टूबर 1959 को राजस्थान के नागौर जिले से, पं. नेहरू के हाथों शुरुआत हुई।"
+        },
+        {
+          "sub": "panchayat",
+          "q": "पंचायती राज व्यवस्था की सिफारिश किस समिति ने की थी?",
+          "options": [
+            "बलवंत राय मेहता समिति",
+            "अशोक मेहता समिति",
+            "गोकुले समिति",
+            "ल. एम. सिंघवी समिति"
+          ],
+          "answer": 0,
+          "explain": "बलवंत राय मेहता समिति (1957) ने तीन स्तरीय पंचायती राज की सिफारिश की।"
+        },
+        {
+          "sub": "panchayat",
+          "q": "पंचायती राज के तीन स्तर कौन-से हैं?",
+          "options": [
+            "जिला परिषद, पंचायत समिति, ग्राम पंचायत",
+            "विधानसभा, विधान परिषद, मंत्रिमंडल",
+            "जिला, तहसील, ब्लॉक",
+            "ग्राम, खंड, जनपद"
+          ],
+          "answer": 0,
+          "explain": "जिला परिषद (Zila Parishad), पंचायत समिति और ग्राम पंचायत — यही तीन स्तर हैं।"
+        },
+        {
+          "sub": "admin",
+          "q": "राजस्थान उच्च न्यायालय का मुख्य स्थान कहाँ है?",
+          "options": [
+            "जयपुर",
+            "जोधपुर",
+            "अजमेर",
+            "उदयपुर"
+          ],
+          "answer": 1,
+          "explain": "मुख्य उच्च न्यायालय जोधपुर में — जयपुर में इसकी खंडपीठ है।"
+        },
+        {
+          "sub": "admin",
+          "q": "राजस्थान के प्रथम मुख्यमंत्री कौन थे?",
+          "options": [
+            "जयनारायण व्यास",
+            "हीरालाल शास्त्री",
+            "मोहनलाल सुखाड़िया",
+            "टीकाराम पालीवाल"
+          ],
+          "answer": 1,
+          "explain": "हीरालाल शास्त्री — ग्रेटर राजस्थान के प्रथम मुख्यमंत्री (1949)।"
+        },
+        {
+          "sub": "admin",
+          "q": "राजस्थान के प्रथम राज्यपाल कौन थे?",
+          "options": [
+            "गुरुमुख निहाल सिंह",
+            "सरदार गुरबख्श सिंह",
+            "हुकम सिंह",
+            "सम्पूर्णानंद"
+          ],
+          "answer": 0,
+          "explain": "गुरुमुख निहाल सिंह — राजस्थान के प्रथम राज्यपाल (1956 से, राज्य बनने पर)।"
+        },
+        {
+          "sub": "admin",
+          "q": "राजस्थान लोक सेवा आयोग (RPSC) का मुख्यालय कहाँ है?",
+          "options": [
+            "जयपुर",
+            "अजमेर",
+            "जोधपुर",
+            "बीकानेर"
+          ],
+          "answer": 1,
+          "explain": "RPSC का मुख्यालय अजमेर में स्थित है।"
+        },
+        {
+          "sub": "admin",
+          "q": "राजस्थान का एकमात्र प्रसिद्ध पहाड़ी स्थान कौन-सा है?",
+          "options": [
+            "पुष्कर",
+            "आबू रोड",
+            "माउंट आबू",
+            "रणकपुर"
+          ],
+          "answer": 2,
+          "explain": "माउंट आबू — सिरोही जिले में अरावली की घाटी में स्थित।"
         }
       ]
     },
     "culture": {
-      "label": "🎭 Rajasthan Art & Culture",
+      "label": "🎭 राजस्थान की कला एवं संस्कृति",
+      "sublabels": {
+        "dance": "💃 लोकनृत्य एवं संगीत",
+        "fairs": "🎪 मेले एवं मंदिर",
+        "art": "🎨 चित्रकला एवं स्थापत्य",
+        "symbols": "🌸 राज्य प्रतीक एवं विशेष"
+      },
       "questions": [
         {
-          "q": "Hawa Mahal (Jaipur) kisne banwaya?",
-          "options": [
-            "Sawai Jai Singh II",
-            "Sawai Pratap Singh",
-            "Man Singh I",
-            "Jai Singh III"
-          ],
-          "answer": 1,
-          "explain": "1799 me Maharaja Sawai Pratap Singh ne banwaya — 956 jharokhe."
-        },
-        {
-          "q": "Kalbelia nritya ko UNESCO ki intangible heritage list me kab shaamil kiya gaya?",
+          "sub": "dance",
+          "q": "कालबेलिया नृत्य को UNESCO की अमूर्त सांस्कृतिक विरासत सूची में कब शामिल किया गया?",
           "options": [
             "2008",
             "2010",
@@ -324,84 +554,175 @@
             "2016"
           ],
           "answer": 1,
-          "explain": "2010 me — Rajasthan ka Kalbelia nritya UNESCO list me shaamil hua."
+          "explain": "2010 में — राजस्थान का कालबेलिया नृत्य UNESCO सूची में शामिल हुआ।"
         },
         {
-          "q": "Puskar ka prasidh mela kis purnima par lagta hai?",
+          "sub": "dance",
+          "q": "घूमर नृत्य मूल रूप से किस जनजाति का प्रसिद्ध नृत्य माना जाता है?",
           "options": [
-            "Sharad Purnima",
-            "Kartik Purnima",
-            "Guru Purnima",
-            "Basant Purnima"
-          ],
-          "answer": 1,
-          "explain": "Kartik Purnima par — Puskar mela duniya ka prasidh oont mela bhi hai."
-        },
-        {
-          "q": "Karni Mata ka mandir (jahan chuhe pooje jate hain) kahan sthit hai?",
-          "options": [
-            "Deshnok, Bikaner",
-            "Salasar, Churu",
-            "Ramdevra, Jaisalmer",
-            "Nathdwara, Rajsamand"
+            "भील",
+            "मीणा",
+            "गरासिया",
+            "सहरिया"
           ],
           "answer": 0,
-          "explain": "Deshnok (Bikaner) — Karni Mata ka prasidh mandir."
+          "explain": "घूमर मूलतः भील जनजाति का नृत्य था, जो राजपूत महिलाओं में भी लोकप्रिय हुआ।"
         },
         {
-          "q": "Chittorgarh ka Vijay Stambh kisne banwaya?",
+          "sub": "dance",
+          "q": "'तेरहताली' नृत्य किस जनजाति से संबंधित है?",
           "options": [
-            "Rana Sanga",
-            "Rana Kumbha",
-            "Maharana Pratap",
-            "Ratan Singh"
-          ],
-          "answer": 1,
-          "explain": "Rana Kumbha ne Mahmud Khilji par vijay ke smaran me banwaya."
-        },
-        {
-          "q": "Rajasthan ka rajya pakshi kaun sa hai?",
-          "options": [
-            "Mor",
-            "Godavan",
-            "Kabutar",
-            "Titar"
-          ],
-          "answer": 1,
-          "explain": "Godavan (Great Indian Bustard) — Jaisalmer ke Drone Sanctuary me milta hai."
-        },
-        {
-          "q": "Rajasthan ka rajya vriksh kaun sa hai?",
-          "options": [
-            "Babool",
-            "Khejri",
-            "Neem",
-            "Rohida"
-          ],
-          "answer": 1,
-          "explain": "Khejri ( Prosopis cineraria ) — marusthal ka kalpavriksha kaha jata hai."
-        },
-        {
-          "q": "'Phad' chitrakala kis jile se judi hai?",
-          "options": [
-            "Bhilwara (Shahpura)",
-            "Kishangarh",
-            "Bundi",
-            "Nathdwara"
+            "कामड़",
+            "भील",
+            "मीणा",
+            "लांगा"
           ],
           "answer": 0,
-          "explain": "Phad painting — Shahpura (Bhilwara) ki prasidh lok chitrakala."
+          "explain": "कामड़ जनजाति की महिलाओं द्वारा 13 मंजीरों के साथ किया जाने वाला नृत्य।"
         },
         {
-          "q": "'Surya Nagri' kis shahar ko kaha jata hai?",
+          "sub": "dance",
+          "q": "'मांड' गायकी किस समुदाय से जुड़ी है?",
           "options": [
-            "Jaipur",
-            "Jaisalmer",
-            "Jodhpur",
-            "Udaipur"
+            "मांगणियार (जैसलमेर)",
+            "लांगा (बाड़मेर)",
+            "भोपा (भीलवाड़ा)",
+            "दरबारी (जोधपुर)"
+          ],
+          "answer": 0,
+          "explain": "जैसलमेर के मांगणियार समुदाय की प्रसिद्ध लोक गायकी — मांड।"
+        },
+        {
+          "sub": "dance",
+          "q": "'रावणहत्था' वाद्य यंत्र मुख्यतः किस जाति/समुदाय से जुड़ा है?",
+          "options": [
+            "भोपा",
+            "मांगणियार",
+            "धोली",
+            "भांबी"
+          ],
+          "answer": 0,
+          "explain": "रावणहत्था — भोपों (फड़ गायक) का प्रमुख वाद्य यंत्र।"
+        },
+        {
+          "sub": "fairs",
+          "q": "पुष्कर का प्रसिद्ध मेला किस पूर्णिमा को लगता है?",
+          "options": [
+            "शरद पूर्णिमा",
+            "कार्तिक पूर्णिमा",
+            "गुरु पूर्णिमा",
+            "बसंत पूर्णिमा"
+          ],
+          "answer": 1,
+          "explain": "कार्तिक पूर्णिमा पर — पुष्कर मेला विश्व प्रसिद्ध ऊँट मेले के लिए भी जाना जाता है।"
+        },
+        {
+          "sub": "fairs",
+          "q": "करनी माता का प्रसिद्ध मंदिर (जहाँ चूहों की पूजा होती है) कहाँ स्थित है?",
+          "options": [
+            "देशनोक, बीकानेर",
+            "सालासर, चूरू",
+            "रामदेवरा, जैसलमेर",
+            "नाथद्वारा, राजसमंद"
+          ],
+          "answer": 0,
+          "explain": "देशनोक (बीकानेर) — करनी माता का प्रसिद्ध मंदिर।"
+        },
+        {
+          "sub": "fairs",
+          "q": "पुष्कर में ब्रह्मा जी का मंदिर किस बात के लिए प्रसिद्ध है?",
+          "options": [
+            "विश्व का सबसे प्राचीन मंदिर",
+            "भारत का प्रमुख एवं प्रसिद्ध ब्रह्मा मंदिर",
+            "सबसे ऊँचा मंदिर",
+            "सबसे बड़ा मंदिर"
+          ],
+          "answer": 1,
+          "explain": "पुष्कर का ब्रह्मा मंदिर भारत का सबसे प्रमुख ब्रह्मा मंदिर है।"
+        },
+        {
+          "sub": "art",
+          "q": "'फाड़' चित्रकला किस स्थान से जुड़ी है?",
+          "options": [
+            "शाहपुरा, भीलवाड़ा",
+            "किशनगढ़",
+            "बूंदी",
+            "नाथद्वारा"
+          ],
+          "answer": 0,
+          "explain": "फाड़ चित्रकला — शाहपुरा (भीलवाड़ा) की प्रसिद्ध लोक चित्रकला।"
+        },
+        {
+          "sub": "art",
+          "q": "'पिछवाई' चित्रकला किस स्थान की पहचान है?",
+          "options": [
+            "नाथद्वारा",
+            "जयपुर",
+            "बीकानेर",
+            "कोटा"
+          ],
+          "answer": 0,
+          "explain": "नाथद्वारा (राजसमंद) — श्रीनाथजी की पिछवाई चित्रकला के लिए प्रसिद्ध।"
+        },
+        {
+          "sub": "art",
+          "q": "'सूर्य नगरी' किस शहर को कहा जाता है?",
+          "options": [
+            "जयपुर",
+            "जैसलमेर",
+            "जोधपुर",
+            "उदयपुर"
           ],
           "answer": 2,
-          "explain": "Jodhpur — Surya Nagri; Jaipur Gulabi Shahar, Jaisalmer Sunahri Shahar, Udaipur Jheelon ka Shahar."
+          "explain": "जोधपुर = सूर्य नगरी; जयपुर = गुलाबी नगरी; जैसलमेर = स्वर्ण नगरी; उदयपुर = झीलों का शहर।"
+        },
+        {
+          "sub": "symbols",
+          "q": "राजस्थान का राज्य पक्षी कौन-सा है?",
+          "options": [
+            "मोर",
+            "गोडावण",
+            "कबूतर",
+            "तीतर"
+          ],
+          "answer": 1,
+          "explain": "गोडावण (Great Indian Bustard) — जैसलमेर के स्थानों में पाया जाता है।"
+        },
+        {
+          "sub": "symbols",
+          "q": "राजस्थान का राज्य वृक्ष कौन-सा है?",
+          "options": [
+            "बबूल",
+            "खेजड़ी",
+            "नीम",
+            "रोहिड़ा"
+          ],
+          "answer": 1,
+          "explain": "खेजड़ी — मरुस्थल का 'कल्पवृक्ष' कहा जाता है।"
+        },
+        {
+          "sub": "symbols",
+          "q": "राजस्थान का राज्य पुष्प कौन-सा है?",
+          "options": [
+            "रोहिड़ा",
+            "कमल",
+            "गुलाब",
+            "आक"
+          ],
+          "answer": 0,
+          "explain": "रोहिड़ा (मारवाड़ टीक) — राजस्थान का राज्य पुष्प।"
+        },
+        {
+          "sub": "symbols",
+          "q": "'पधारो म्हारे देश' किससे संबंधित है?",
+          "options": [
+            "राजस्थान पर्यटन का नारा",
+            "राजस्थान पुलिस का नारा",
+            "एक लोकगीत पुस्तक",
+            "राजस्थान दिवस गीत"
+          ],
+          "answer": 0,
+          "explain": "'पधारो म्हारे देश' — राजस्थान पर्यटन का प्रसिद्ध नारा/गीत।"
         }
       ]
     }
