@@ -89,11 +89,14 @@ HELP_TEXT = (
     "Commands: /start /menu /quiz /help /setreminder /stopreminder"
 )
 
-# Token: config.py se ya environment variable se
-try:
-    from config import BOT_TOKEN  # type: ignore
-except Exception:
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+# Token: pehle environment variable (Render/hosting ke liye), fir config.py ka fallback
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "").strip()
+if not BOT_TOKEN:
+    try:
+        from config import BOT_TOKEN as _CFG_TOKEN  # type: ignore
+        BOT_TOKEN = (_CFG_TOKEN or "").strip()
+    except Exception:
+        pass
 
 # ------------------------------------------------------------- keyboards ----
 
