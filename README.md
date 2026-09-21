@@ -63,6 +63,20 @@ Apna band kholne par hi reminder bhej paane ke liye bot hamesha chalta rehna cha
 - **Render / Railway** — free/paid hosting, GitHub par code push karke "Background Worker"
   bana sakte ho — permanently 24x7 ke liye yahi behtar hai
 
+### Render par deploy karte waqt (dhyan rakho)
+
+1. **Start Command me bilkul aisa likho:** `python bot.py` — "bot" ke baad dot,
+   phir seedha "py" — beech me **koi space nahi** (`python bot. py` galat hai!)
+2. **BOT_TOKEN env variable add karo:** Render Dashboard > apni service >
+   *Environment* > *Add Environment Variable* > Key: `BOT_TOKEN`, Value: apna token
+   (config.py upload karne ki zaroorat nahi — env variable behtar rehta hai)
+3. Service ka type **Web Service** rakh sakte ho — naya bot.py khud ek chhota web
+   server chala deta hai jo Render ka port kholke rakhta hai
+4. **Free plan ki ek sima:** 15 minute tak koi visit na ho to Render service sula
+   deta hai aur bot atak jata hai. Isse bachne ke liye [cron-job.org](https://cron-job.org)
+   (free) par apni service ke URL ko har 10 minute me ping karne ka job bana do —
+   bot hamesha jagta rahega
+
 ---
 
 ## ➕ Naya exam ya nayi PDF link add karna

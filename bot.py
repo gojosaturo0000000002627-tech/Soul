@@ -15,8 +15,10 @@ import os
 import random
 import re
 import sys
+import threading
 from datetime import time as dtime
 from difflib import get_close_matches
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -628,6 +630,25 @@ def register_handlers(app):
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text))
 
 
+def _start_keepalive_server():
+    """Render jaise platforms web-service ka port khula maangte hain.
+    Ye chhota HTTP server background me PORT par sunta rehta hai."""
+    port = int(os.environ.get("PORT", "10000"))
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"Rajasthan Exam Bot is running")
+
+        def log_message(self, *args):
+            pass  # har request par log mat bharo
+
+    server = HTTPServer(("0.0.0.0", port), Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    log.info("Keepalive server listening on port %s", port)
+
+
 def main():
     token = (BOT_TOKEN or "").strip()
     if not token:
@@ -635,10 +656,14 @@ def main():
             "\nBOT_TOKEN nahi mila!\n"
             "1) config.py banao aur usme likho:  BOT_TOKEN = \"<apna token>\"\n"
             "   (ya) environment variable set karo:  export BOT_TOKEN=<apna token>\n"
+            "   (Render par: Dashboard > Environment > Add Environment Variable)\n"
             "2) Token Telegram ke @BotFather se milega — /newbot likho.\n"
             "Aadhi jankari README.md me hai.\n"
         )
         return
+
+    if os.environ.get("PORT"):  # Render/Cloud Run jaise hosts
+        _start_keepalive_server()
 
     app = Application.builder().token(token).post_init(post_init).build()
     register_handlers(app)
