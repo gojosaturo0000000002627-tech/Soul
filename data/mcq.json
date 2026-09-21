@@ -1,0 +1,409 @@
+{
+  "topics": {
+    "history": {
+      "label": "📜 Rajasthan History",
+      "questions": [
+        {
+          "q": "Haldighati ka yudh kab hua tha?",
+          "options": [
+            "1526",
+            "1556",
+            "1576",
+            "1606"
+          ],
+          "answer": 2,
+          "explain": "18 June 1576 — Maharana Pratap vs Mughal sena (Man Singh ke netritv me)."
+        },
+        {
+          "q": "Chittorgarh ka durg (maanyata ke anusaar) kisne banwaya tha?",
+          "options": [
+            "Mori vansh ke Chitrangada",
+            "Prithviraj Chauhan",
+            "Rana Kumbha",
+            "Rao Jodha"
+          ],
+          "answer": 0,
+          "explain": "Chitrangada Mori ke naam par hi Chittorgarh (Chitrakoot) naam pada."
+        },
+        {
+          "q": "Jaisalmer ka durg kisne banwaya tha?",
+          "options": [
+            "Rao Jodha",
+            "Rawal Jaisal",
+            "Rana Sanga",
+            "Man Singh"
+          ],
+          "answer": 1,
+          "explain": "1155 AD me Bhati vanshiya Rawal Jaisal ne — isi liye sheher ka naam Jaisalmer pada."
+        },
+        {
+          "q": "Kumbhalgarh ka durg kisne banwaya?",
+          "options": [
+            "Rana Sanga",
+            "Maharana Pratap",
+            "Rana Kumbha",
+            "Udai Singh"
+          ],
+          "answer": 2,
+          "explain": "Rana Kumbha ne 15vi sadi me banwaya — Aravali ki pahadiyon me sthit."
+        },
+        {
+          "q": "Kavigyi Meera Bai ki shaadi kiske saath hui thi?",
+          "options": [
+            "Maharana Pratap",
+            "Mewar ke Yuvraj Bhojraj",
+            "Rana Sanga",
+            "Amar Singh"
+          ],
+          "answer": 1,
+          "explain": "Meera Bai ki shaadi Mewar ke Rana Sanga ke putra Bhojraj ke saath hui thi."
+        },
+        {
+          "q": "Rajasthan Diwas kab manaya jata hai?",
+          "options": [
+            "1 November",
+            "30 March",
+            "15 August",
+            "26 January"
+          ],
+          "answer": 1,
+          "explain": "30 March 1949 ko 'Greater Rajasthan' ka nirman hua tha."
+        },
+        {
+          "q": "'Prithviraj Raso' granth kisne likha?",
+          "options": [
+            "Chand Bardai",
+            "Banabhatta",
+            "Kalhana",
+            "Vishakhadatta"
+          ],
+          "answer": 0,
+          "explain": "Chand Bardai Prithviraj Chauhan ke darbari kavi the."
+        },
+        {
+          "q": "Amer ke durg ka nirman kisne karaya?",
+          "options": [
+            "Sawai Jai Singh II",
+            "Raja Man Singh I",
+            "Mirza Raja Jai Singh",
+            "Sawai Pratap Singh"
+          ],
+          "answer": 1,
+          "explain": "Raja Man Singh I ne 16vi sadi me Amer durg ka nirman karaya."
+        },
+        {
+          "q": "'Rajasthan ka Gandhi' kis shaksiyat ko kaha jata hai?",
+          "options": [
+            "Jai Narayan Vyas",
+            "Gokulbhai Bhatt",
+            "Heera Lal Shastri",
+            "Arjun Lal Sethi"
+          ],
+          "answer": 1,
+          "explain": "Sirohi se sanbandhit Gokulbhai Bhatt — swatantrata sangram senani aur 'Rajasthan ka Gandhi'."
+        }
+      ]
+    },
+    "geography": {
+      "label": "🗺️ Rajasthan Geography",
+      "questions": [
+        {
+          "q": "Kshetrafal ke drishti se Bharat ka sabse bada rajya kaun sa hai?",
+          "options": [
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Rajasthan",
+            "Uttar Pradesh"
+          ],
+          "answer": 2,
+          "explain": "Rajasthan (~3.42 lakh sq km) — Bharat ke kul kshetrafal ka lagbhag 10.4%."
+        },
+        {
+          "q": "Rajasthan ka sabse uncha sthan kaun sa hai?",
+          "options": [
+            "Sirohi ki tarai",
+            "Guru Shikhar (Mount Abu)",
+            "Sariska ki pahadiyan",
+            "Jarga pahad"
+          ],
+          "answer": 1,
+          "explain": "Guru Shikhar, Mount Abu — lagbhag 1722 meter, Aravali shreni me."
+        },
+        {
+          "q": "Rajasthan ki sabse lambi nadi kaun si hai?",
+          "options": [
+            "Banas",
+            "Luni",
+            "Chambal",
+            "Mahi"
+          ],
+          "answer": 2,
+          "explain": "Chambal — Yamuna ki sahayak nadi, Rajasthan me sabse lamba biodha."
+        },
+        {
+          "q": "Rajasthan ka kshetrafal me sabse bada jila kaun sa hai?",
+          "options": [
+            "Barmer",
+            "Jodhpur",
+            "Jaisalmer",
+            "Bikaner"
+          ],
+          "answer": 2,
+          "explain": "Jaisalmer — lagbhag 38,000 sq km ke saath sabse bada jila."
+        },
+        {
+          "q": "Sambhar jheel kis prakar ki jheel hai?",
+          "options": [
+            "Mitha pani ki sabse badi jheel",
+            "Namkeen (salt) pani ki badi jheel",
+            "Kratrik (artificial) jheel",
+            "Baanjh (glacier) jheel"
+          ],
+          "answer": 1,
+          "explain": "Sambhar — Bharat ki sabse badi andlandi namkeen pani ki jheel; namak utpadan bhi hota hai."
+        },
+        {
+          "q": "Luni nadi ka jal kahan jake milta hai?",
+          "options": [
+            "Arab samudra",
+            "Rann of Kachchh",
+            "Bay of Bengal",
+            "Sambhar jheel"
+          ],
+          "answer": 1,
+          "explain": "Luni — Ajmer ke Naga pahad se nikal kar Rann of Kachchh me samapt."
+        },
+        {
+          "q": "'Rajasthan ka Cherrapunji' kis jile ko kaha jata hai?",
+          "options": [
+            "Mount Abu",
+            "Udaipur",
+            "Jhalawar",
+            "Kota"
+          ],
+          "answer": 2,
+          "explain": "Jhalawar — Rajasthan me sabse zyada varsha wala kshetra."
+        },
+        {
+          "q": "Rajasthan ka Thar marusthal dusre naam se kya kaha jata hai?",
+          "options": [
+            "Marusthali",
+            "Charotar",
+            "Rohi",
+            "Beet"
+          ],
+          "answer": 0,
+          "explain": "Thar ko 'Marusthali' bhi kaha jata hai."
+        },
+        {
+          "q": "Jaisamand jheel kis nadi par bani hai?",
+          "options": [
+            "Banas",
+            "Gomti",
+            "Ahar",
+            "Som"
+          ],
+          "answer": 1,
+          "explain": "Udaipur ke paas Gomti nadi par — Bharat ki sabse badi artificial freshwater jheelon me se ek."
+        }
+      ]
+    },
+    "polity": {
+      "label": "🏛️ Rajasthan Polity & Current",
+      "questions": [
+        {
+          "q": "Rajasthan Vidhan Sabha me kul kitne vidhayak (sadasye) hote hain?",
+          "options": [
+            "160",
+            "180",
+            "200",
+            "230"
+          ],
+          "answer": 2,
+          "explain": "Rajasthan Vidhan Sabha ki kul shaktiyan 200 vidhayak hain."
+        },
+        {
+          "q": "Rajasthan High Court kahan sthit hai?",
+          "options": [
+            "Jaipur",
+            "Jodhpur",
+            "Ajmer",
+            "Udaipur"
+          ],
+          "answer": 1,
+          "explain": "Mukhya High Court Jodhpur me — Jaipur me iski bench hai."
+        },
+        {
+          "q": "Rajasthan ka pehla mukhyamantri kaun tha?",
+          "options": [
+            "Jai Narayan Vyas",
+            "Heera Lal Shastri",
+            "Mohan Lal Sukhadia",
+            "Tika Ram Paliwal"
+          ],
+          "answer": 1,
+          "explain": "Heera Lal Shastri — Greater Rajasthan ke pehle mukhyamantri (1949)."
+        },
+        {
+          "q": "Bharat me Panchayati Raj ki shuruaat kis rajya se hui?",
+          "options": [
+            "Gujarat",
+            "Uttar Pradesh",
+            "Rajasthan",
+            "Andhra Pradesh"
+          ],
+          "answer": 2,
+          "explain": "2 October 1959 — Rajasthan ke Nagaur jile me, Pt. Nehru ke haathon se."
+        },
+        {
+          "q": "Rajya Sabha me Rajasthan ke kitne sadasye hain?",
+          "options": [
+            "10",
+            "12",
+            "14",
+            "18"
+          ],
+          "answer": 0,
+          "explain": "Rajya Sabha me Rajasthan ki 10 seats hain."
+        },
+        {
+          "q": "Lok Sabha me Rajasthan se kitne seats hain?",
+          "options": [
+            "23",
+            "24",
+            "25",
+            "27"
+          ],
+          "answer": 2,
+          "explain": "Rajasthan se Lok Sabha me 25 seats hain."
+        },
+        {
+          "q": "Matsya Sangh me kaun se jile shaamil the?",
+          "options": [
+            "Alwar, Bharatpur, Dholpur, Karauli",
+            "Kota, Bundi, Jhalawar, Sawai Madhopur",
+            "Ajmer, Pali, Nagaur, Sikar",
+            "Udaipur, Dungarpur, Banswara, Sirohi"
+          ],
+          "answer": 0,
+          "explain": "18 March 1948 ko bana Matsya Sangh — Alwar, Bharatpur, Dholpur aur Karauli."
+        },
+        {
+          "q": "Rajasthan ka ekmatra pramukh pahadi sthaan (hill station) kaun sa hai?",
+          "options": [
+            "Puskar",
+            "Abu Road",
+            "Mount Abu",
+            "Ranakpur"
+          ],
+          "answer": 2,
+          "explain": "Mount Abu — Sirohi jile me, Aravali ki ghati me sthit."
+        }
+      ]
+    },
+    "culture": {
+      "label": "🎭 Rajasthan Art & Culture",
+      "questions": [
+        {
+          "q": "Hawa Mahal (Jaipur) kisne banwaya?",
+          "options": [
+            "Sawai Jai Singh II",
+            "Sawai Pratap Singh",
+            "Man Singh I",
+            "Jai Singh III"
+          ],
+          "answer": 1,
+          "explain": "1799 me Maharaja Sawai Pratap Singh ne banwaya — 956 jharokhe."
+        },
+        {
+          "q": "Kalbelia nritya ko UNESCO ki intangible heritage list me kab shaamil kiya gaya?",
+          "options": [
+            "2008",
+            "2010",
+            "2013",
+            "2016"
+          ],
+          "answer": 1,
+          "explain": "2010 me — Rajasthan ka Kalbelia nritya UNESCO list me shaamil hua."
+        },
+        {
+          "q": "Puskar ka prasidh mela kis purnima par lagta hai?",
+          "options": [
+            "Sharad Purnima",
+            "Kartik Purnima",
+            "Guru Purnima",
+            "Basant Purnima"
+          ],
+          "answer": 1,
+          "explain": "Kartik Purnima par — Puskar mela duniya ka prasidh oont mela bhi hai."
+        },
+        {
+          "q": "Karni Mata ka mandir (jahan chuhe pooje jate hain) kahan sthit hai?",
+          "options": [
+            "Deshnok, Bikaner",
+            "Salasar, Churu",
+            "Ramdevra, Jaisalmer",
+            "Nathdwara, Rajsamand"
+          ],
+          "answer": 0,
+          "explain": "Deshnok (Bikaner) — Karni Mata ka prasidh mandir."
+        },
+        {
+          "q": "Chittorgarh ka Vijay Stambh kisne banwaya?",
+          "options": [
+            "Rana Sanga",
+            "Rana Kumbha",
+            "Maharana Pratap",
+            "Ratan Singh"
+          ],
+          "answer": 1,
+          "explain": "Rana Kumbha ne Mahmud Khilji par vijay ke smaran me banwaya."
+        },
+        {
+          "q": "Rajasthan ka rajya pakshi kaun sa hai?",
+          "options": [
+            "Mor",
+            "Godavan",
+            "Kabutar",
+            "Titar"
+          ],
+          "answer": 1,
+          "explain": "Godavan (Great Indian Bustard) — Jaisalmer ke Drone Sanctuary me milta hai."
+        },
+        {
+          "q": "Rajasthan ka rajya vriksh kaun sa hai?",
+          "options": [
+            "Babool",
+            "Khejri",
+            "Neem",
+            "Rohida"
+          ],
+          "answer": 1,
+          "explain": "Khejri ( Prosopis cineraria ) — marusthal ka kalpavriksha kaha jata hai."
+        },
+        {
+          "q": "'Phad' chitrakala kis jile se judi hai?",
+          "options": [
+            "Bhilwara (Shahpura)",
+            "Kishangarh",
+            "Bundi",
+            "Nathdwara"
+          ],
+          "answer": 0,
+          "explain": "Phad painting — Shahpura (Bhilwara) ki prasidh lok chitrakala."
+        },
+        {
+          "q": "'Surya Nagri' kis shahar ko kaha jata hai?",
+          "options": [
+            "Jaipur",
+            "Jaisalmer",
+            "Jodhpur",
+            "Udaipur"
+          ],
+          "answer": 2,
+          "explain": "Jodhpur — Surya Nagri; Jaipur Gulabi Shahar, Jaisalmer Sunahri Shahar, Udaipur Jheelon ka Shahar."
+        }
+      ]
+    }
+  }
+}
