@@ -17,11 +17,15 @@ import random
 import re
 import sys
 import threading
+import urllib.parse
 from datetime import time as dtime
 from difflib import get_close_matches
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from io import BytesIO
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+import httpx
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import (
@@ -81,8 +85,8 @@ HELP_TEXT = (
     "Patwari, Police). Bot official syllabus ka link/PDF de dega.\n\n"
     "📄 Old Papers — exam ka naam likho, purane question papers ke official "
     "links milenge (RPSC / RSSB / BSER official sites se).\n\n"
-    "❓ MCQ Quiz — topic chuno, 10 sawal ka quiz hoga. Jawab dote hi sahi / galat "
-    "pata chal jayega, aur end me score bhi milega.\n\n"
+    "❓ MCQ Quiz — विषय चुनो (इतिहास, भूगोल, राजव्यवस्था, कला-संस्कृति), फिर टॉपिक चुनो "
+    "या पूरा विषय एक साथ करो। सही/गलत तुरंत पता चलेगा और अंत में स्कोर भी मिलेगा।\n\n"
     "⏰ Reminder — bas itna likho:\n"
     "   /setreminder 07:30   (roz 7:30 baje reminder milega)\n"
     "   /stopreminder        (reminder band karne ke liye)\n\n"
@@ -133,24 +137,58 @@ def exam_keyboard(section):
             row = []
     if row:
         rows.append(row)
+    rows.append([InlineKeyboardButton("➕ और exams चाहिए?", callback_data="menu:more")])
     rows.append([InlineKeyboardButton("⬅️ Menu", callback_data="menu:main")])
     return InlineKeyboardMarkup(rows)
 
 
-def topic_keyboard():
+def subject_keyboard():
+    """MCQ — pehla step: kaunsa vishay?"""
     rows = []
     row = []
     for key, t in MCQ_TOPICS.items():
-        row.append(InlineKeyboardButton(t["label"], callback_data=f"mcqtopic:{key}"))
+        n = len(t.get("questions", []))
+        row.append(
+            InlineKeyboardButton(
+                f"{t['label']} ({n})", callback_data=f"mcqsub:{key}"
+            )
+        )
         if len(row) == 2:
             rows.append(row)
             row = []
     if row:
         rows.append(row)
     rows.append(
-        [InlineKeyboardButton("🎲 Mix — sab topics", callback_data="mcqtopic:mix")]
+        [InlineKeyboardButton("🎲 Mix — थोड़े सब विषयों से", callback_data="mcqstart:mix")]
     )
     rows.append([InlineKeyboardButton("⬅️ Menu", callback_data="menu:main")])
+    return InlineKeyboardMarkup(rows)
+
+
+def subtopic_keyboard(key):
+    """MCQ — doosra step: vishay ke andar kaunsa topic ya pura vishay?"""
+    t = MCQ_TOPICS[key]
+    counts = {}
+    for q in t.get("questions", []):
+        counts[q.get("sub", "")] = counts.get(q.get("sub", ""), 0) + 1
+    rows = []
+    for sub, label in t.get("sublabels", {}).items():
+        n = counts.get(sub, 0)
+        if n:
+            rows.append(
+                [InlineKeyboardButton(
+                    f"{label} ({n} प्रश्न)", callback_data=f"mcqstart:{key}:{sub}"
+                )]
+            )
+    rows.append(
+        [
+            InlineKeyboardButton(
+                f"📚 पूरा विषय — सभी {len(t['questions'])} प्रश्न",
+                callback_data=f"mcqstart:{key}",
+            )
+        ]
+    )
+    rows.append([InlineKeyboardButton("⬅️ विषय सूची", callback_data="menu:mcq")])
     return InlineKeyboardMarkup(rows)
 
 
@@ -172,7 +210,8 @@ def notes_keyboard():
 
 
 def _norm(s):
-    return re.sub(r"[^a-z0-9]", "", s.lower())
+    # Devanagari + English dono ke liye (\w unicode letters ko rakhta hai)
+    return re.sub(r"[\W_]+", "", s.lower())
 
 
 def find_exam(query):
@@ -201,6 +240,70 @@ def find_exam(query):
     return None
 
 
+MAX_PDF_MB = 45  # Telegram bot API ki sima ~50MB hai
+
+
+def _pdf_filename(title):
+    """Title se theek-theek filename banao."""
+    name = re.sub(r"[^\w\-.() ]+", "_", title)[:60].strip(" _")
+    if not name:
+        name = "question_paper"
+    if not name.lower().endswith(".pdf"):
+        name += ".pdf"
+    return name
+
+
+async def send_pdf_document(context, chat_id, title, url):
+    """URL se PDF download karke Telegram me document ke roop me bhejo."""
+    await context.bot.send_chat_action(chat_id, action="upload_document")
+    async with httpx.AsyncClient(
+        follow_redirects=True,
+        timeout=httpx.Timeout(180.0),
+        headers={"User-Agent": "Mozilla/5.0"},
+    ) as client:
+        resp = await client.get(url)
+    resp.raise_for_status()
+    data = resp.content
+    if len(data) > MAX_PDF_MB * 1024 * 1024:
+        raise ValueError("PDF bahut badi hai")
+    if not data.startswith(b"%PDF"):
+        raise ValueError("Ye file PDF nahi nikli")
+    await context.bot.send_document(
+        chat_id,
+        document=BytesIO(data),
+        filename=_pdf_filename(title),
+        caption=title[:950],
+    )
+
+
+async def on_pdf_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """User ne 📥 PDF wala button dabaya."""
+    q = update.callback_query
+    try:
+        _, section, exam_idx, item_idx = q.data.split(":")
+        ex = EXAMS[int(exam_idx)]
+        links = ex.get("old_papers" if section == "oldpapers" else "syllabus", [])
+        item = links[int(item_idx)]
+    except (ValueError, IndexError, KeyError):
+        await q.answer("Ye button purana ho gaya — dobara exam select karo.")
+        return
+
+    await q.answer("⏳ PDF laa rahe hain...")
+    chat_id = update.effective_chat.id
+    try:
+        await send_pdf_document(context, chat_id, item["title"], item["url"])
+    except Exception as e:
+        log.warning("PDF send failed (%s): %s", item["url"], e)
+        kb = InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔗 Browser me kholo", url=item["url"])]]
+        )
+        await context.bot.send_message(
+            chat_id,
+            "⚠️ PDF download nahi ho paayi. Seedha link try karo:",
+            reply_markup=kb,
+        )
+
+
 async def send_exam(context, chat_id, idx, section):
     """Ek exam ka syllabus ya old-paper links bhejo."""
     ex = EXAMS[idx]
@@ -212,8 +315,21 @@ async def send_exam(context, chat_id, idx, section):
         header = f"📚 {ex['name']} — Syllabus"
 
     kb = []
-    for item in links:
-        kb.append([InlineKeyboardButton("⬇️ " + item["title"], url=item["url"])])
+    for i, lnk in enumerate(links):
+        if lnk["url"].lower().endswith(".pdf"):
+            # direct PDF — button dabate hi Telegram me aa jayegi
+            kb.append(
+                [
+                    InlineKeyboardButton(
+                        "📥 " + lnk["title"][:58],
+                        callback_data=f"pdf:{section}:{idx}:{i}",
+                    )
+                ]
+            )
+        else:
+            kb.append(
+                [InlineKeyboardButton("🔗 " + lnk["title"][:58], url=lnk["url"])]
+            )
     if ex.get("website"):
         kb.append(
             [
@@ -227,9 +343,11 @@ async def send_exam(context, chat_id, idx, section):
 
     note = ""
     if section == "oldpapers":
-        note = "\n\nYe links official sites ke hain — wahan exam/year select karke PDF download ho jayegi."
+        note = ("\n\n📥 wale button dabao — PDF seedha Telegram me aa jayegi! "
+                "Agar 📥 nahi hai (jaise RSSB ke kuch exams) to 📖 official "
+                "page khulega jahan exam/year select karke PDF download karni hogi.")
     else:
-        note = "\n\nOfficial page par apne exam ka naam dhundo aur PDF download kar lo."
+        note = "\n\n📥 wale button dabao — syllabus PDF seedha Telegram me aa jayegi."
 
     await context.bot.send_message(
         chat_id,
@@ -241,25 +359,33 @@ async def send_exam(context, chat_id, idx, section):
 # ------------------------------------------------------------------- quiz ----
 
 
-def build_quiz(topic_key):
-    """Topic se 10 sawal ka quiz banao (shuffle karke)."""
-    if topic_key == "mix":
+def build_quiz(spec):
+    """spec = 'mix' | vishay-key | vishay-key:subtopic — sawal shuffle karke."""
+    if spec == "mix":
         qs = []
         for t in MCQ_TOPICS.values():
             qs.extend(t.get("questions", []))
         label = "🎲 Mix Quiz"
+        if len(qs) > QUIZ_LENGTH:
+            qs = random.sample(qs, QUIZ_LENGTH)
+    elif ":" in spec:
+        key, sub = spec.split(":", 1)
+        t = MCQ_TOPICS.get(key)
+        if not t:
+            return None, []
+        qs = [q for q in t.get("questions", []) if q.get("sub") == sub]
+        label = f"{t['label']} — {t.get('sublabels', {}).get(sub, sub)}"
     else:
-        t = MCQ_TOPICS.get(topic_key)
+        t = MCQ_TOPICS.get(spec)
         if not t:
             return None, []
         qs = list(t.get("questions", []))
-        label = t.get("label", topic_key)
+        label = t.get("label", spec)
     if not qs:
         return label, []
-
-    picked = random.sample(qs, min(len(qs), QUIZ_LENGTH))
+    random.shuffle(qs)
     prepared = []
-    for q in picked:
+    for q in qs:
         pairs = list(enumerate(q["options"]))
         random.shuffle(pairs)
         new_answer = [orig for orig, _ in pairs].index(q["answer"])
@@ -282,28 +408,28 @@ async def send_question(context, chat_id):
     q = qz["qs"][i]
     opts = "\n\n".join(f"{L}) {o}" for L, o in zip("ABCD", q["options"]))
     text = (
-        f"❓ Sawal {i + 1}/{len(qz['qs'])} — {qz['label']}\n\n"
+        f"❓ प्रश्न {i + 1}/{len(qz['qs'])} — {qz['label']}\n\n"
         f"{q['q']}\n\n{opts}"
     )
     kb = [
         [InlineKeyboardButton(L, callback_data=f"quiz:{i}:{j}") for j, L in enumerate("ABCD")],
-        [InlineKeyboardButton("✖️ Quiz band karo", callback_data="quiz:quit")],
+        [InlineKeyboardButton("✖️ क्विज़ बंद करें", callback_data="quiz:quit")],
     ]
     await context.bot.send_message(
         chat_id, text, reply_markup=InlineKeyboardMarkup(kb)
     )
 
 
-async def start_quiz(update, context, topic_key):
-    label, qs = build_quiz(topic_key)
+async def start_quiz(update, context, spec):
+    label, qs = build_quiz(spec)
     if not qs:
         await update.callback_query.message.reply_text(
-            "Is topic me abhi sawal available nahi hain. 😅"
+            "इस टॉपिक में अभी प्रश्न उपलब्ध नहीं हैं। 😅"
         )
         return
     context.chat_data["quiz"] = {
         "label": label,
-        "topic": topic_key,
+        "spec": spec,
         "qs": qs,
         "i": 0,
         "score": 0,
@@ -398,10 +524,11 @@ async def cmd_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def cmd_quiz(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    context.chat_data["await"] = None
+    context.chat_data["await"] = "mcqtopic"
     await update.message.reply_text(
-        "❓ Kaunsa topic chahiye? Quiz me 10 sawal honge 👇",
-        reply_markup=topic_keyboard(),
+        "❓ किस विषय के MCQ करने हैं?\n\nनीचे से चुनो — या बस विषय का नाम लिख दो "
+        "(जैसे: इतिहास, Geography, भूगोल...) 👇",
+        reply_markup=subject_keyboard(),
     )
 
 
@@ -430,9 +557,31 @@ async def on_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
     elif section == "mcq":
-        context.chat_data["await"] = None
+        context.chat_data["await"] = "mcqtopic"
         await context.bot.send_message(
-            chat_id, "❓ Topic chuno — 10 sawal ka quiz hoga 👇", reply_markup=topic_keyboard()
+            chat_id,
+            "❓ किस विषय के MCQ करने हैं? विषय चुनो — फिर टॉपिक मिलेगा, चाहो तो पूरा "
+            "विषय भी कर सकते हो 👇",
+            reply_markup=subject_keyboard(),
+        )
+
+    elif section == "more":
+        context.chat_data["await"] = "anyexam"
+        kb = InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("🏛️ RPSC site", url="https://rpsc.rajasthan.gov.in"),
+                 InlineKeyboardButton("🏛️ RSSB site", url="https://rssb.rajasthan.gov.in")],
+                [InlineKeyboardButton("🏫 BSER / REET site", url="https://rajeduboard.rajasthan.gov.in"),
+                 InlineKeyboardButton("🚓 Police site", url="https://police.rajasthan.gov.in")],
+            ]
+        )
+        await context.bot.send_message(
+            chat_id,
+            "➕ कोई और exam चाहिए? बस उसका नाम नीचे लिख दो! 👇\n\n"
+            "अगर वो मेरी list में है तो सीधे उसकी syllabus और old papers दे दूँगा। "
+            "नहीं है तो भी चिंता मत करो — उस exam के लिए ढूंढने के links बना दूँगा। \n\n"
+            "(जैसे लिखो: animal attendant, jailor, वन रक्षक, high court...)",
+            reply_markup=kb,
         )
 
     elif section == "reminder":
@@ -480,8 +629,147 @@ async def on_exam_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await send_exam(context, update.effective_chat.id, idx, section)
 
 
+async def ddg_search(query, n=5):
+    """DuckDuckGo HTML search — (title, url) ki list. Fail hone par khali list."""
+    try:
+        async with httpx.AsyncClient(
+            follow_redirects=True,
+            timeout=25,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            },
+        ) as client:
+            r = await client.post("https://html.duckduckgo.com/html/", data={"q": query})
+        results = []
+        for m in re.finditer(
+            r'class="result__a"[^>]*href="([^"]+)"[^>]*>(.*?)</a>', r.text, re.S
+        ):
+            url, title = m.group(1), re.sub(r"<[^>]+>", "", m.group(2)).strip()
+            mm = re.search(r"uddg=([^&]+)", url)
+            if mm:
+                url = urllib.parse.unquote(mm.group(1))
+            elif url.startswith("//"):
+                url = "https:" + url
+            if "duckduckgo.com" in url or not title:
+                continue
+            title = title.replace("&", "&")[:60]
+            results.append((title, url))
+            if len(results) >= n:
+                break
+        return results
+    except Exception as e:
+        log.warning("DDG search failed: %s", e)
+        return []
+
+
+def _rank_results(results):
+    """Behtar results upar: pehle PDF, fir official rajasthan.gov.in, fir badi sites."""
+    def score(item):
+        _t, url = item
+        s = 0
+        if url.lower().split("?")[0].endswith(".pdf"):
+            s -= 10
+        if "rajasthan.gov.in" in url:
+            s -= 5
+        if any(d in url for d in ("sarkariresult", "adda247", "testbook", "jagranjosh", "freshersnow")):
+            s -= 2
+        return s
+    return sorted(results, key=score)
+
+
+async def send_exam_all(context, chat_id, idx):
+    """Ek exam ka syllabus + old papers dono ek saath bhejo."""
+    ex = EXAMS[idx]
+    await context.bot.send_message(
+        chat_id,
+        f"✅ मिल गया! {ex['name']} — सब कुछ नीचे है 👇",
+    )
+    await send_exam(context, chat_id, idx, "syllabus")
+    if ex.get("old_papers"):
+        await send_exam(context, chat_id, idx, "oldpapers")
+
+
+def _close_exams(query, n=4):
+    """List me se milte-julte exams ke index dhoondo."""
+    q = _norm(query)
+    if not q:
+        return []
+    keymap = {}
+    for i, ex in enumerate(EXAMS):
+        for k in [ex["name"]] + ex.get("aliases", []):
+            nk = _norm(k)
+            if nk:
+                keymap[nk] = i
+    close = get_close_matches(q, list(keymap.keys()), n=n, cutoff=0.45)
+    out = []
+    for c in close:
+        idx = keymap[c]
+        if idx not in out:
+            out.append(idx)
+    return out
+
+
+async def on_exam_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Suggestion button — is exam ka sab kuch bhejo."""
+    q = update.callback_query
+    await q.answer()
+    try:
+        idx = int(q.data.split(":")[1])
+    except (ValueError, IndexError):
+        return
+    if idx >= len(EXAMS):
+        await q.message.reply_text("Ye exam abhi available nahi hai.")
+        return
+    context.chat_data["await"] = None
+    await send_exam_all(context, update.effective_chat.id, idx)
+
+
+def find_subject(query):
+    """User ke likhe naam se MCQ vishay/subtopic dhoondo. Return: 'key' | 'key:sub' | None"""
+    q = _norm(query)
+    if not q:
+        return None
+    # vishay ke naam + english key dono se match
+    for key, t in MCQ_TOPICS.items():
+        names = [t.get("label", "").replace(key, ""), key]
+        for n in names:
+            n = _norm(n)
+            if n and (n in q or q in n):
+                return key
+    # ab subtopic labels se
+    for key, t in MCQ_TOPICS.items():
+        for sub, label in t.get("sublabels", {}).items():
+            sl = _norm(label)
+            if sl and (sl in q or q in sl):
+                return f"{key}:{sub}"
+    return None
+
+
+async def on_pdf_get(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Search result ka 📥 PDF button — seedha Telegram me bhejo."""
+    q = update.callback_query
+    pool = context.chat_data.get("search_pdfs") or []
+    try:
+        item = pool[int(q.data.split(":")[1])]
+    except (ValueError, IndexError):
+        await q.answer("Ye button purana ho gaya — dobara exam likho.")
+        return
+    await q.answer("⏳ PDF laa rahe hain...")
+    chat_id = update.effective_chat.id
+    try:
+        await send_pdf_document(context, chat_id, item["title"], item["url"])
+    except Exception as e:
+        log.warning("Search PDF send failed (%s): %s", item["url"], e)
+        kb = InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔗 Browser me kholo", url=item["url"])]]
+        )
+        await context.bot.send_message(
+            chat_id, "⚠️ PDF download nahi ho paayi. Seedha link try karo:", reply_markup=kb
+        )
+
+
 async def on_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """User ka text message — agar koi section wait kar raha ho to exam dhoondo."""
+    """User ka text message — section ke hisaab se exam ya topic dhoondo."""
     mode = context.chat_data.get("await")
     if not mode:
         await update.message.reply_text(
@@ -491,10 +779,118 @@ async def on_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     query = update.message.text.strip()
     context.chat_data["await"] = None
+
+    if mode == "mcqtopic":
+        spec = find_subject(query)
+        if spec is None:
+            await update.message.reply_text(
+                f'"{query}" — ye vishay mujhe samajh nahi aaya 😅\n'
+                "Neeche se chuno:",
+                reply_markup=subject_keyboard(),
+            )
+            return
+        if ":" in spec:
+            await start_quiz(update, context, spec)
+        else:
+            await update.message.reply_text(
+                "✅ विषय चुना गया! अब बताओ — पूरा विषय या कोई टॉपिक? 👇",
+                reply_markup=subtopic_keyboard(spec),
+            )
+        return
+
+    if mode == "anyexam":
+        idx = find_exam(query)
+        if idx is not None:
+            await send_exam_all(context, update.effective_chat.id, idx)
+            return
+
+        # list me nahi — internet par asli search karke results lao
+        await update.message.reply_text(
+            f"⏳ '{query}' ke liye internet par ढूंढ रहा हूँ... कुछ seconds रुको 🙏"
+        )
+        syl_res = await ddg_search(f"{query} rajasthan syllabus pdf")
+        pap_res = await ddg_search(
+            f"{query} rajasthan previous year question paper pdf"
+        )
+
+        if not syl_res and not pap_res:
+            # search hi fail — Google buttons par wapas
+            q_enc = urllib.parse.quote_plus(f"{query} rajasthan")
+            kb = InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("🔍 Google: syllabus ढूंढो", url=f"https://www.google.com/search?q={q_enc}+syllabus+pdf")],
+                    [InlineKeyboardButton("🔍 Google: old papers ढूंढो", url=f"https://www.google.com/search?q={q_enc}+previous+year+question+paper+pdf")],
+                    [InlineKeyboardButton("🏛️ RPSC", url="https://rpsc.rajasthan.gov.in"), InlineKeyboardButton("🏛️ RSSB", url="https://rssb.rajasthan.gov.in")],
+                    [InlineKeyboardButton("⬅️ Menu", callback_data="menu:main")],
+                ]
+            )
+            await update.message.reply_text(
+                "😅 अभी search से results नहीं मिले। In buttons se try karo 👇",
+                reply_markup=kb,
+            )
+            return
+
+        kb = []
+        pdf_pool = []  # chat_data me rakhenge — direct PDF bhejne ke liye
+
+        for close_idx in _close_exams(query)[:2]:
+            kb.append(
+                [
+                    InlineKeyboardButton(
+                        "👉 " + EXAMS[close_idx]["name"] + " — यही चाहिए?",
+                        callback_data=f"examboth:{close_idx}",
+                    )
+                ]
+            )
+
+        for label, res in (("📚 Syllabus", syl_res), ("📄 Old Papers", pap_res)):
+            for title, url in _rank_results(res)[:3]:
+                if url.lower().split("?")[0].endswith(".pdf"):
+                    pdf_pool.append({"title": title, "url": url})
+                    kb.append(
+                        [
+                            InlineKeyboardButton(
+                                f"📥 {label}: {title}"[:60],
+                                callback_data=f"pdfget:{len(pdf_pool) - 1}",
+                            )
+                        ]
+                    )
+                else:
+                    kb.append(
+                        [InlineKeyboardButton(f"🔗 {label}: {title}"[:60], url=url)]
+                    )
+
+        q_enc = urllib.parse.quote_plus(f"{query} rajasthan")
+        kb.append(
+            [
+                InlineKeyboardButton("🔍 Aur chahiye? Google", url=f"https://www.google.com/search?q={q_enc}+syllabus+pdf"),
+            ]
+        )
+        kb.append(
+            [
+                InlineKeyboardButton("🏛️ RPSC", url="https://rpsc.rajasthan.gov.in"),
+                InlineKeyboardButton("🏛️ RSSB", url="https://rssb.rajasthan.gov.in"),
+            ]
+        )
+        kb.append(
+            [
+                InlineKeyboardButton("➕ दूसरा exam लिखो", callback_data="menu:more"),
+                InlineKeyboardButton("⬅️ Menu", callback_data="menu:main"),
+            ]
+        )
+        context.chat_data["search_pdfs"] = pdf_pool
+        await update.message.reply_text(
+            f'✅ "{query}" के लिए ये मिले 👇\n\n'
+            "📥 वाले button दबाओ — PDF सीधे Telegram में आ जाएगी!\n"
+            "🔗 वाले button पर नतीजे खुलेंगे।",
+            reply_markup=InlineKeyboardMarkup(kb),
+        )
+        return
+
     idx = find_exam(query)
     if idx is None:
         await update.message.reply_text(
-            f"\"{query}\" — ye exam mujhe samajh nahi aaya 😅\n"
+            f'"{query}" — ye exam mujhe samajh nahi aaya 😅\n'
             "Neeche list me se chuno, ya sahi naam se dobara likho:",
             reply_markup=exam_keyboard(mode),
         )
@@ -502,10 +898,27 @@ async def on_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await send_exam(context, update.effective_chat.id, idx, mode)
 
 
-async def on_mcq_topic(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def on_mcq_sub(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """User ne vishay chuna — ab subtopic dikhao."""
+    q = update.callback_query
+    await q.answer()
+    key = q.data.split(":", 1)[1]
+    if key not in MCQ_TOPICS:
+        await q.message.reply_text("Ye vishay abhi available nahi hai.")
+        return
+    t = MCQ_TOPICS[key]
+    await q.message.reply_text(
+        f"✅ {t['label']} — {len(t['questions'])} प्रश्न इस विषय में।\n\n"
+        "अब बताओ — कोई एक टॉपिक करना है या पूरा विषय? 👇",
+        reply_markup=subtopic_keyboard(key),
+    )
+
+
+async def on_mcq_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Subtopic ya pura vishay chuna gaya — quiz shuru!"""
     await update.callback_query.answer()
-    topic_key = update.callback_query.data.split(":", 1)[1]
-    await start_quiz(update, context, topic_key)
+    spec = update.callback_query.data.split(":", 1)[1]
+    await start_quiz(update, context, spec)
 
 
 async def on_quiz_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -534,18 +947,18 @@ async def on_quiz_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except ValueError:
         return
     if si != qz["i"]:
-        await q.answer("Ye purana sawal hai — agli sawal ka jawab do 🙂")
+        await q.answer("Ye purana sawal hai — agle sawal ka jawab do 🙂")
         return
 
     question = qz["qs"][si]
     correct = question["answer"]
     if oi == correct:
         qz["score"] += 1
-        await q.answer("✅ Sahi jawab!")
-        result = "✅ Sahi jawab! 🎉"
+        await q.answer("✅ सही उत्तर!")
+        result = "✅ सही उत्तर! 🎉"
     else:
-        await q.answer("❌ Galat")
-        result = f"❌ Galat — sahi jawab: {'ABCD'[correct]}) {question['options'][correct]}"
+        await q.answer("❌ गलत")
+        result = f"❌ गलत — सही उत्तर: {'ABCD'[correct]}) {question['options'][correct]}"
     expl = f"\n💡 {question['explain']}" if question.get("explain") else ""
 
     try:
@@ -564,14 +977,17 @@ async def on_quiz_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [
                 [
                     InlineKeyboardButton(
-                        "🔁 Dubara khelo", callback_data=f"mcqtopic:{qz['topic']}"
+                        "🔁 दोबारा खेलो", callback_data=f"mcqstart:{qz['spec']}"
                     ),
-                    InlineKeyboardButton("⬅️ Menu", callback_data="menu:main"),
-                ]
+                    InlineKeyboardButton(
+                        "📚 दूसरा विषय", callback_data="menu:mcq"
+                    ),
+                ],
+                [InlineKeyboardButton("⬅️ Menu", callback_data="menu:main")],
             ]
         )
         await q.message.reply_text(
-            f"🎉 Quiz khatam!\n\nAapka score: {score}/{total} {emoji}", reply_markup=kb
+            f"🎉 क्विज़ पूरा हुआ!\n\nआपका स्कोर: {score}/{total} {emoji}", reply_markup=kb
         )
         context.chat_data["quiz"] = None
     else:
@@ -628,9 +1044,13 @@ def register_handlers(app):
     app.add_handler(CommandHandler("stopreminder", cmd_stopreminder))
     app.add_handler(CallbackQueryHandler(on_button, pattern=r"^menu:"))
     app.add_handler(CallbackQueryHandler(on_exam_button, pattern=r"^exam:"))
-    app.add_handler(CallbackQueryHandler(on_mcq_topic, pattern=r"^mcqtopic:"))
+    app.add_handler(CallbackQueryHandler(on_exam_all, pattern=r"^examboth:"))
+    app.add_handler(CallbackQueryHandler(on_mcq_sub, pattern=r"^mcqsub:"))
+    app.add_handler(CallbackQueryHandler(on_mcq_start, pattern=r"^mcqstart:"))
     app.add_handler(CallbackQueryHandler(on_quiz_answer, pattern=r"^quiz:"))
     app.add_handler(CallbackQueryHandler(on_note, pattern=r"^note:"))
+    app.add_handler(CallbackQueryHandler(on_pdf_button, pattern=r"^pdf:"))
+    app.add_handler(CallbackQueryHandler(on_pdf_get, pattern=r"^pdfget:"))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text))
 
 
